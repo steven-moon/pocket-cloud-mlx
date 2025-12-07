@@ -20,8 +20,8 @@ let pocketCloudAIAgentPath = pocketCloudAIAgentRelativePaths.first { FileManager
 let hasPocketCloudAIAgent = pocketCloudAIAgentPath != nil
 
 var dependencies: [Package.Dependency] = [
-    .package(url: "https://github.com/ml-explore/mlx-swift", from: "0.25.5"),
-    .package(url: "https://github.com/ml-explore/mlx-swift-examples", branch: "main"),
+    .package(url: "https://github.com/ml-explore/mlx-swift", from: "0.29.0"),
+    .package(url: "https://github.com/ml-explore/mlx-swift-lm", branch: "main"),
     .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.3"),
     .package(url: "https://github.com/jpsim/Yams", from: "5.0.0")
 ]
@@ -29,18 +29,18 @@ var dependencies: [Package.Dependency] = [
 var targetDependencies: [Target.Dependency] = [
     .product(name: "MLX", package: "mlx-swift"),
     .product(name: "MLXNN", package: "mlx-swift"),
-    .product(name: "MLXLLM", package: "mlx-swift-examples"),
-    .product(name: "MLXLMCommon", package: "mlx-swift-examples"),
-    .product(name: "MLXVLM", package: "mlx-swift-examples"),
+    .product(name: "MLXLLM", package: "mlx-swift-lm"),
+    .product(name: "MLXLMCommon", package: "mlx-swift-lm"),
+    .product(name: "MLXVLM", package: "mlx-swift-lm"),
     .product(name: "ArgumentParser", package: "swift-argument-parser"),
     .product(name: "Yams", package: "Yams")
 ]
 
 var testDependencies: [Target.Dependency] = [
     "PocketCloudMLX",
-    .product(name: "MLXLLM", package: "mlx-swift-examples"),
-    .product(name: "MLXLMCommon", package: "mlx-swift-examples"),
-    .product(name: "MLXVLM", package: "mlx-swift-examples")
+    .product(name: "MLXLLM", package: "mlx-swift-lm"),
+    .product(name: "MLXLMCommon", package: "mlx-swift-lm"),
+    .product(name: "MLXVLM", package: "mlx-swift-lm")
 ]
 
 // Add workspace dependencies if available
