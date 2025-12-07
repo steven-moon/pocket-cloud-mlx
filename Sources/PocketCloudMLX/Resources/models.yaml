@@ -1,0 +1,708 @@
+# MLX Engine - Model Registry
+# This file contains the curated list of MLX-compatible models
+# Metadata is periodically refreshed from HuggingFace Hub API
+models:
+  # Small Models (<3B)
+  - hubId: mlx-community/SmolLM-135M-Instruct-4bit
+    name: SmolLM 135M Instruct
+    description: Ultra-compact 135M model for testing and basic tasks
+    parameters: "135M"
+    quantization: 4bit
+    architecture: SmolLM
+    maxTokens: 2048
+    estimatedSizeGB: 0.08
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 268435456
+  - hubId: mlx-community/OpenELM-270M-Instruct
+    name: OpenELM 270M
+    description: Efficient 270M model for edge devices
+    parameters: "270M"
+    quantization: fp16
+    architecture: OpenELM
+    maxTokens: 2048
+    estimatedSizeGB: 0.15
+    modelType: llm
+    gpuCacheLimit: 268435456
+  - hubId: mlx-community/ERNIE-4.5-0.3B-PT-bf16-ft
+    name: ERNIE 4.5 0.3B
+    description: ERNIE 4.5 0.3B parameter model
+    parameters: "0.3B"
+    quantization: bf16
+    architecture: ERNIE
+    maxTokens: 4096
+    estimatedSizeGB: 0.2
+    modelType: llm
+    gpuCacheLimit: 268435456
+  - hubId: mlx-community/Qwen1.5-0.5B-Chat-4bit
+    name: Qwen 1.5 0.5B Chat
+    description: Small, fast chat model good for testing and quick responses
+    parameters: "0.5B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 4096
+    estimatedSizeGB: 0.3
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Qwen2.5-0.5B-Instruct-4bit
+    name: Qwen2.5-0.5B-Instruct
+    description: Fast and efficient 0.5B model, perfect for quick responses and testing on all devices
+    parameters: "0.5B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 4096
+    estimatedSizeGB: 0.3
+    defaultSystemPrompt: You are a helpful assistant that provides concise and accurate responses.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Qwen3-0.6B-4bit
+    name: Qwen 3 0.6B
+    description: Fast and efficient Qwen 3 0.6B model
+    parameters: "0.6B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 4096
+    estimatedSizeGB: 0.35
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/TinyLlama-1.1B-Chat-v1.0-4bit
+    name: TinyLlama 1.1B Chat
+    description: Ultra-compact model for mobile devices and testing
+    parameters: "1.1B"
+    quantization: 4bit
+    architecture: TinyLlama
+    maxTokens: 2048
+    estimatedSizeGB: 0.6
+    defaultSystemPrompt: You are a helpful assistant that provides concise and accurate responses.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Llama-3.2-1B-Instruct-4bit
+    name: Llama 3.2 1B Instruct
+    description: Fast and efficient 1B parameter model
+    parameters: "1B"
+    quantization: 4bit
+    architecture: Llama
+    maxTokens: 4096
+    estimatedSizeGB: 0.6
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/LFM2-1.2B-4bit
+    name: LFM2 1.2B
+    description: LFM2 1.2B model for efficient inference
+    parameters: "1.2B"
+    quantization: 4bit
+    architecture: LFM
+    maxTokens: 4096
+    estimatedSizeGB: 0.7
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/exaone-4.0-1.2b-4bit
+    name: Exaone 4.0 1.2B
+    description: Exaone 4.0 1.2B parameter model
+    parameters: "1.2B"
+    quantization: 4bit
+    architecture: Exaone
+    maxTokens: 4096
+    estimatedSizeGB: 0.7
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Qwen2.5-1.5B-Instruct-4bit
+    name: Qwen 2.5 1.5B
+    description: Qwen 2.5 1.5B instruction-tuned model
+    parameters: "1.5B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 4096
+    estimatedSizeGB: 0.9
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Qwen3-1.7B-4bit
+    name: Qwen 3 1.7B
+    description: Qwen 3 1.7B parameter model
+    parameters: "1.7B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 4096
+    estimatedSizeGB: 1.0
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/quantized-gemma-2b-it
+    name: Gemma 2B
+    description: Google's Gemma 2B instruction-tuned model
+    parameters: "2B"
+    quantization: quantized
+    architecture: Gemma
+    maxTokens: 4096
+    estimatedSizeGB: 1.2
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/gemma-2-2b-4bit
+    name: Gemma 2 2B
+    description: Google's efficient Gemma 2 2B model
+    parameters: "2B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 4096
+    estimatedSizeGB: 1.2
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/granite-3.3-2b-instruct-4bit
+    name: Granite 3.3 2B
+    description: IBM's Granite 3.3 2B instruction model
+    parameters: "2B"
+    quantization: 4bit
+    architecture: Granite
+    maxTokens: 4096
+    estimatedSizeGB: 1.2
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/bitnet-b1.58-2B-4T-4bit
+    name: BitNet 2B
+    description: BitNet 2B model with 1.58-bit quantization
+    parameters: "2B"
+    quantization: 4bit
+    architecture: BitNet
+    maxTokens: 4096
+    estimatedSizeGB: 1.2
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/gemma-3n-E2B-it-lm-bf16
+    name: Gemma 3n E2B BF16
+    description: Gemma 3n E2B with BF16 precision
+    parameters: "2B"
+    quantization: bf16
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 2.0
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/gemma-3n-E2B-it-lm-4bit
+    name: Gemma 3n E2B
+    description: Gemma 3n E2B with 4-bit quantization
+    parameters: "2B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 1.2
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/phi-2-hf-4bit-mlx
+    name: Phi-2
+    description: Microsoft's Phi-2 2.7B model
+    parameters: "2.7B"
+    quantization: 4bit
+    architecture: Phi
+    maxTokens: 4096
+    estimatedSizeGB: 1.6
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/SmolLM3-3B-4bit
+    name: SmolLM3 3B
+    description: SmolLM3 3B model for efficient inference
+    parameters: "3B"
+    quantization: 4bit
+    architecture: SmolLM
+    maxTokens: 4096
+    estimatedSizeGB: 1.8
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Llama-3.2-3B-4bit
+    name: Llama 3.2 3B
+    description: Good quality 3B parameter model with reasonable speed
+    parameters: "3B"
+    quantization: 4bit
+    architecture: Llama
+    maxTokens: 4096
+    estimatedSizeGB: 1.8
+    modelType: llm
+    gpuCacheLimit: 536870912
+  # Medium Models (3B-10B)
+  - hubId: mlx-community/Phi-3.1-mini-4bit
+    name: Phi-3.1 Mini
+    description: Microsoft's efficient Phi-3.1 Mini model
+    parameters: "3.8B"
+    quantization: 4bit
+    architecture: Phi
+    maxTokens: 4096
+    estimatedSizeGB: 2.3
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Phi-3.5-mini-instruct-4bit
+    name: Phi-3.5 Mini
+    description: Microsoft's Phi-3.5 Mini, excellent for coding and reasoning
+    parameters: "3.8B"
+    quantization: 4bit
+    architecture: Phi
+    maxTokens: 8192
+    estimatedSizeGB: 2.3
+    defaultSystemPrompt: You are a helpful AI assistant. Provide accurate and helpful responses.
+    endOfTextTokens: ["<|endoftext|>"]
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/Qwen1.5-3B-Chat-4bit
+    name: Qwen 1.5 3B Chat
+    description: Balanced 3B model for good performance and reasonable memory usage
+    parameters: "3B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 8192
+    estimatedSizeGB: 1.8
+    defaultSystemPrompt: You are a helpful assistant that provides accurate and helpful responses.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/Qwen3-4B-4bit
+    name: Qwen 3 4B
+    description: Qwen 3 4B parameter model
+    parameters: "4B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 4096
+    estimatedSizeGB: 2.4
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/gemma-3n-E4B-it-lm-bf16
+    name: Gemma 3n E4B BF16
+    description: Gemma 3n E4B with BF16 precision
+    parameters: "4B"
+    quantization: bf16
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 4.0
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/gemma-3n-E4B-it-lm-4bit
+    name: Gemma 3n E4B
+    description: Gemma 3n E4B with 4-bit quantization
+    parameters: "4B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 2.4
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/starcoder2-3b-4bit
+    name: StarCoder2 3B
+    description: StarCoder2 3B code generation model
+    parameters: "3B"
+    quantization: 4bit
+    architecture: StarCoder
+    maxTokens: 4096
+    estimatedSizeGB: 1.8
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Qwen1.5-7B-Chat-4bit
+    name: Qwen 1.5 7B Chat
+    description: High-quality 7B model for advanced conversations and reasoning
+    parameters: "7B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 16384
+    estimatedSizeGB: 4.2
+    defaultSystemPrompt: You are a helpful assistant that provides detailed and accurate responses.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Qwen2.5-7B-Instruct-4bit
+    name: Qwen 2.5 7B
+    description: Qwen 2.5 7B instruction-tuned model
+    parameters: "7B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 8192
+    estimatedSizeGB: 4.2
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Mistral-7B-Instruct-v0.3-4bit
+    name: Mistral 7B Instruct
+    description: High-quality instruction-following model
+    parameters: "7B"
+    quantization: 4bit
+    architecture: Mistral
+    maxTokens: 8192
+    estimatedSizeGB: 4.2
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["</s>"]
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Mistral-7B-v0.1-hf-4bit-mlx
+    name: Mistral 7B v0.1
+    description: Mistral 7B v0.1 base model
+    parameters: "7B"
+    quantization: 4bit
+    architecture: Mistral
+    maxTokens: 8192
+    estimatedSizeGB: 4.2
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/DeepSeek-R1-Distill-Qwen-7B-4bit
+    name: DeepSeek R1 7B
+    description: DeepSeek R1 distilled 7B model
+    parameters: "7B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 8192
+    estimatedSizeGB: 4.2
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/MiMo-7B-SFT-4bit
+    name: MiMo 7B
+    description: MiMo 7B supervised fine-tuned model
+    parameters: "7B"
+    quantization: 4bit
+    architecture: MiMo
+    maxTokens: 8192
+    estimatedSizeGB: 4.2
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/AceReason-Nemotron-7B-4bit
+    name: AceReason 7B
+    description: AceReason Nemotron 7B reasoning model
+    parameters: "7B"
+    quantization: 4bit
+    architecture: Nemotron
+    maxTokens: 8192
+    estimatedSizeGB: 4.2
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Qwen3-8B-4bit
+    name: Qwen 3 8B
+    description: Qwen 3 8B parameter model
+    parameters: "8B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 8192
+    estimatedSizeGB: 4.8
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  # Vision Models
+  - hubId: mlx-community/Qwen2-VL-2B-Instruct-4bit
+    name: Qwen2 VL 2B Instruct
+    description: Multimodal Qwen2 vision-language model for image understanding tasks.
+    parameters: "2B"
+    quantization: 4bit
+    architecture: Qwen2-VL
+    maxTokens: 4096
+    estimatedSizeGB: 2.7
+    defaultSystemPrompt: Describe the image in English, focusing on objects, colors, and relationships.
+    modelType: vlm
+    gpuCacheLimit: 2147483648
+    features: ["visionLanguageModels", "multiModalInput", "streamingGeneration"]
+  - hubId: mlx-community/Meta-Llama-3-8B-Instruct-4bit
+    name: Llama 3 8B
+    description: Meta's Llama 3 8B instruction-tuned model
+    parameters: "8B"
+    quantization: 4bit
+    architecture: Llama
+    maxTokens: 8192
+    estimatedSizeGB: 4.8
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Meta-Llama-3.1-8B-Instruct-4bit
+    name: Llama 3.1 8B Instruct
+    description: High-performance model for complex reasoning tasks
+    parameters: "8B"
+    quantization: 4bit
+    architecture: Llama
+    maxTokens: 8192
+    estimatedSizeGB: 4.9
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Llama-3.2-8B-4bit
+    name: Llama 3.2 8B
+    description: Meta's Llama 3.2 8B model, excellent for general conversation
+    parameters: "8B"
+    quantization: 4bit
+    architecture: Llama
+    maxTokens: 16384
+    estimatedSizeGB: 4.8
+    defaultSystemPrompt: You are a helpful AI assistant. Provide accurate and helpful responses.
+    endOfTextTokens: ["<|endoftext|>"]
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/GLM-4-9B-0414-4bit
+    name: GLM-4 9B
+    description: GLM-4 9B model from Zhipu AI
+    parameters: "9B"
+    quantization: 4bit
+    architecture: GLM
+    maxTokens: 8192
+    estimatedSizeGB: 5.4
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/gemma-2-9b-it-4bit
+    name: Gemma 2 9B
+    description: Google's Gemma 2 9B instruction-tuned model
+    parameters: "9B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 5.4
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  # Large Models (10B+)
+  - hubId: mlx-community/Mistral-Nemo-Instruct-2407-4bit
+    name: Mistral Nemo 12B
+    description: Mistral Nemo 12B instruction model
+    parameters: "12B"
+    quantization: 4bit
+    architecture: Mistral
+    maxTokens: 8192
+    estimatedSizeGB: 7.2
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/CodeLlama-13b-Instruct-hf-4bit-MLX
+    name: CodeLlama 13B
+    description: Code Llama 13B instruction model for coding tasks
+    parameters: "13B"
+    quantization: 4bit
+    architecture: Llama
+    maxTokens: 8192
+    estimatedSizeGB: 7.8
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Baichuan-M1-14B-Instruct-4bit-ft
+    name: Baichuan M1 14B
+    description: Baichuan M1 14B instruction model
+    parameters: "14B"
+    quantization: 4bit
+    architecture: Baichuan
+    maxTokens: 8192
+    estimatedSizeGB: 8.4
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/Qwen3-30B-A3B-4bit
+    name: Qwen 3 MoE 30B
+    description: Qwen 3 30B Mixture-of-Experts model
+    parameters: "30B"
+    quantization: 4bit
+    architecture: Qwen
+    maxTokens: 8192
+    estimatedSizeGB: 18.0
+    defaultSystemPrompt: You are a helpful assistant.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: llm
+    gpuCacheLimit: 4294967296
+  - hubId: mlx-community/c4ai-command-r-v01-4bit
+    name: Command R 35B
+    description: Cohere's Command R 35B model
+    parameters: "35B"
+    quantization: 4bit
+    architecture: Command-R
+    maxTokens: 8192
+    estimatedSizeGB: 21.0
+    modelType: llm
+    gpuCacheLimit: 4294967296
+  - hubId: mlx-community/Phi-3.5-MoE-instruct-4bit
+    name: Phi-3.5 MoE
+    description: Microsoft's Phi-3.5 Mixture-of-Experts model
+    parameters: "42B"
+    quantization: 4bit
+    architecture: Phi
+    maxTokens: 8192
+    estimatedSizeGB: 25.2
+    modelType: llm
+    gpuCacheLimit: 4294967296
+  - hubId: mlx-community/DeepSeek-R1-4bit
+    name: DeepSeek R1 70B
+    description: DeepSeek R1 70B reasoning model
+    parameters: "70B"
+    quantization: 4bit
+    architecture: DeepSeek
+    maxTokens: 8192
+    estimatedSizeGB: 42.0
+    modelType: llm
+    gpuCacheLimit: 4294967296
+  # Gemma 3 QAT Series
+  - hubId: mlx-community/gemma-3-1b-it-qat-4bit
+    name: Gemma 3 1B QAT
+    description: Gemma 3 1B quantization-aware trained
+    parameters: "1B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 0.6
+    modelType: llm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/gemma-3-4b-it-qat-4bit
+    name: Gemma 3 4B QAT
+    description: Gemma 3 4B quantization-aware trained
+    parameters: "4B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 2.4
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/gemma-3-12b-it-qat-4bit
+    name: Gemma 3 12B QAT
+    description: Gemma 3 12B quantization-aware trained
+    parameters: "12B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 7.2
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/gemma-3-27b-it-qat-4bit
+    name: Gemma 3 27B QAT
+    description: Gemma 3 27B quantization-aware trained
+    parameters: "27B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 16.2
+    modelType: llm
+    gpuCacheLimit: 4294967296
+  - hubId: mlx-community/gemma-3-2b-it-4bit
+    name: Gemma 3 2B
+    description: Google's Gemma 3 2B model, optimized for instruction following
+    parameters: "2B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 8192
+    estimatedSizeGB: 1.2
+    defaultSystemPrompt: You are a helpful AI assistant. Answer questions accurately and helpfully.
+    endOfTextTokens: ["<|endoftext|>"]
+    modelType: llm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/gemma-3-8b-it-4bit
+    name: Gemma 3 8B
+    description: Google's Gemma 3 8B model, excellent balance of performance and efficiency
+    parameters: "8B"
+    quantization: 4bit
+    architecture: Gemma
+    maxTokens: 16384
+    estimatedSizeGB: 4.8
+    defaultSystemPrompt: You are a helpful AI assistant. Answer questions accurately and helpfully.
+    endOfTextTokens: ["<|endoftext|>"]
+    modelType: llm
+    gpuCacheLimit: 2147483648
+  # Vision Language Models
+  - hubId: mlx-community/llava-v1.6-3b-4bit
+    name: LLaVA 1.6 3B
+    description: Vision language model for image understanding and analysis
+    parameters: "3B"
+    quantization: Q4_K_M
+    architecture: LLaVA
+    maxTokens: 4096
+    estimatedSizeGB: 2.1
+    defaultSystemPrompt: You are a helpful assistant that can analyze and describe images.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: vlm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/llava-v1.5-7b-4bit
+    name: LLaVA 1.5 7B
+    description: Vision language model for image understanding and analysis (LLaVA 1.5 7B)
+    parameters: "7B"
+    quantization: 4bit
+    architecture: LLaVA
+    maxTokens: 4096
+    estimatedSizeGB: 4.2
+    defaultSystemPrompt: You are a helpful assistant that can analyze and describe images.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: vlm
+    gpuCacheLimit: 2147483648
+  - hubId: mlx-community/paligemma-3b-mix-448-8bit
+    name: PaliGemma 3B
+    description: Google's PaliGemma 3B vision-language model
+    parameters: "3B"
+    quantization: 8bit
+    architecture: PaliGemma
+    maxTokens: 4096
+    estimatedSizeGB: 3.0
+    modelType: vlm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/Qwen2-VL-2B-Instruct-4bit
+    name: Qwen2 VL 2B
+    description: Qwen2 Vision-Language 2B model
+    parameters: "2B"
+    quantization: 4bit
+    architecture: Qwen2-VL
+    maxTokens: 4096
+    estimatedSizeGB: 1.5
+    defaultSystemPrompt: You are a helpful assistant that can see and analyze images.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: vlm
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/Qwen2.5-VL-3B-Instruct-4bit
+    name: Qwen2.5 VL 3B
+    description: Qwen2.5 Vision-Language 3B model
+    parameters: "3B"
+    quantization: 4bit
+    architecture: Qwen2.5-VL
+    maxTokens: 4096
+    estimatedSizeGB: 2.1
+    defaultSystemPrompt: You are a helpful assistant that can see and analyze images.
+    endOfTextTokens: ["<|im_end|>"]
+    modelType: vlm
+    gpuCacheLimit: 1073741824
+  - hubId: mlx-community/SmolVLM-Instruct-4bit
+    name: SmolVLM
+    description: Compact vision-language model for efficient VL tasks
+    parameters: "2B"
+    quantization: 4bit
+    architecture: SmolVLM
+    maxTokens: 4096
+    estimatedSizeGB: 1.5
+    modelType: vlm
+    gpuCacheLimit: 536870912
+  # Embedding Models
+  - hubId: mlx-community/bge-small-en-v1.5-4bit
+    name: BGE Small En
+    description: Efficient text embedding model for semantic search and similarity
+    parameters: "384M"
+    quantization: Q4_K_M
+    architecture: BGE
+    maxTokens: 512
+    estimatedSizeGB: 0.2
+    modelType: embedding
+    gpuCacheLimit: 536870912
+  - hubId: mlx-community/bge-large-en-v1.5-4bit
+    name: BGE Large En
+    description: High-quality text embedding model for semantic search and similarity (BGE Large)
+    parameters: "1.2B"
+    quantization: 4bit
+    architecture: BGE
+    maxTokens: 1024
+    estimatedSizeGB: 0.7
+    modelType: embedding
+    gpuCacheLimit: 1073741824
+  # Diffusion Models
+  - hubId: mlx-community/stable-diffusion-xl-base-1.0-4bit
+    name: Stable Diffusion XL
+    description: Image generation model (Stable Diffusion XL)
+    parameters: "2.3B"
+    quantization: 4bit
+    architecture: StableDiffusionXL
+    maxTokens: 77
+    estimatedSizeGB: 2.5
+    defaultSystemPrompt: Generate a high-quality image from the given prompt.
+    modelType: diffusion
+    gpuCacheLimit: 536870912
+  # Special Variants
+  - hubId: mlx-community/Llama-3.2-3B-fp16
+    name: Llama 3.2 3B FP16
+    description: Llama 3.2 3B model with FP16 quantization
+    parameters: "3B"
+    quantization: fp16
+    architecture: Llama
+    maxTokens: 4096
+    estimatedSizeGB: 3.2
+    modelType: llm
+    gpuCacheLimit: 536870912
