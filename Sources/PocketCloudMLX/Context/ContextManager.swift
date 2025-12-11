@@ -26,6 +26,7 @@ import EventKit
 import Contacts
 import Vision
 import PDFKit
+import PocketCloudCommon
 import PocketCloudLogger
 
 #if os(iOS)
@@ -38,6 +39,7 @@ import AppKit
 @MainActor
 public class ContextManager: ObservableObject {
     private let logger = Logger(label: "ContextManager")
+    private let networkManager = NetworkManager()
     
     @Published public var currentContext: [ContextItem] = []
     @Published public var contextualSuggestions: [String] = []
@@ -57,11 +59,9 @@ public class ContextManager: ObservableObject {
         logger.info("Extracting webpage context from: \(url.absoluteString)")
         
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            
-            guard let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode == 200,
-                  let htmlString = String(data: data, encoding: .utf8) else {
+            let response = try await networkManager.send(NetworkRequest(url: url))
+            guard response.statusCode == 200,
+                  let htmlString = String(data: response.data, encoding: .utf8) else {
                 logger.error("Failed to fetch webpage content")
                 return nil
             }

@@ -23,6 +23,7 @@
 // == End LLM Context Header ==
 import Foundation
 import PocketCloudLogger
+import PocketCloudCommon
 
 /// Anti-fragile model bootstrapper that works across all Apple platforms
 /// Creates minimal model structures at runtime to prevent config.json errors
@@ -41,8 +42,16 @@ public final class ModelBootstrapper: @unchecked Sendable {
 
     private var hasBootstrapped = false
     private let bootstrapLock = NSLock()
+    private let networkManager: NetworkManager
 
-    private init() {}
+    private init() {
+        let configuration = URLSessionConfiguration.default
+        configuration.waitsForConnectivity = true
+        configuration.allowsConstrainedNetworkAccess = true
+        configuration.allowsExpensiveNetworkAccess = true
+        configuration.allowsCellularAccess = true
+        networkManager = NetworkManager(configuration: configuration)
+    }
 
     /// Bootstrap minimal model structures for reliable app startup
     /// This method is safe to call multiple times and from any thread
@@ -155,7 +164,8 @@ public final class ModelBootstrapper: @unchecked Sendable {
                 throw ModelBootstrapperError.fileCreationFailed(path)
             }
             let configURL = URL(string: "https://huggingface.co/\(encodedModelId)/resolve/main/config.json")!
-            let (data, _) = try await URLSession.shared.data(from: configURL)
+            let response = try await networkManager.send(NetworkRequest(url: configURL))
+            let data = response.data
 
             // Validate that we got valid JSON
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])

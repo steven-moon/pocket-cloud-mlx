@@ -21,6 +21,9 @@
 //   - Prefer tokens from StyleManager for colors/spacing; avoid hardcoded values.
 //
 // == End LLM Context Header ==
+#if canImport(PocketCloudCommon)
+import PocketCloudCommon
+#endif
 import Foundation
 import PocketCloudLogger
 @preconcurrency import Hub
@@ -44,7 +47,7 @@ public actor HuggingFaceAPI_Client {
     public static let shared = HuggingFaceAPI_Client()
 
     private let baseURL = "https://huggingface.co/api"
-    private let session: URLSession
+    private let networkManager: NetworkManager
     private static let tokenLogger = Logger(label: "HuggingFaceAPI.Token")
     private static let tokenLogTimestampKey = "com.mlxengine.huggingface.lastMissingTokenLog"
     private static let tokenLogFlagKey = "com.mlxengine.huggingface.missingTokenLogged"
@@ -53,6 +56,11 @@ public actor HuggingFaceAPI_Client {
     private let responseLogger = Logger(label: "HuggingFaceAPI.Response")
 
     public init() {
+        let configuration = Self.makeSessionConfiguration()
+        networkManager = NetworkManager(configuration: configuration)
+    }
+
+    private static func makeSessionConfiguration() -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 300  // 5 minutes
         configuration.timeoutIntervalForResource = 3600  // 1 hour
@@ -60,12 +68,9 @@ public actor HuggingFaceAPI_Client {
         configuration.allowsCellularAccess = true
         configuration.allowsExpensiveNetworkAccess = true
         configuration.allowsConstrainedNetworkAccess = true
-
-        // Enable HTTP/2 for better performance
         configuration.httpShouldUsePipelining = true
         configuration.httpMaximumConnectionsPerHost = 6  // Allow multiple concurrent connections
-
-        session = URLSession(configuration: configuration)
+        return configuration
     }
 
     // Helper to get the current token from AppStorage (UserDefaults)
@@ -147,19 +152,16 @@ public actor HuggingFaceAPI_Client {
             throw HuggingFaceError.invalidURL
         }
 
-        var request = URLRequest(url: url)
+        var headers: [String: String] = [:]
         if let token = currentToken(), !token.isEmpty {
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            headers["Authorization"] = "Bearer \(token)"
         }
+        let request = NetworkRequest(url: url, headers: headers)
 
-        let (data, response) = try await session.data(for: request)
-
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw HuggingFaceError.networkError
-        }
-
-        logger.info("HTTP response status: \(httpResponse.statusCode)")
-        guard (200...299).contains(httpResponse.statusCode) else {
+        let response: NetworkResponse
+        do {
+            response = try await networkManager.send(request)
+        } catch let NetworkError.statusCode(httpResponse, data) {
             throw interpretHTTPError(
                 response: httpResponse,
                 data: data,
@@ -167,11 +169,13 @@ public actor HuggingFaceAPI_Client {
             )
         }
 
+        logger.info("HTTP response status: \(response.statusCode)")
+
         // Use JSONDecoder with proper configuration to handle decimal numbers
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dateDecodingStrategy = .iso8601
-        var models = try decoder.decode([HuggingFaceModel_Data].self, from: data)
+        var models = try decoder.decode([HuggingFaceModel_Data].self, from: response.data)
         logger.info("Models found: \(models.count)")
 
         // Filter for device compatibility using restored device analyzer
@@ -273,18 +277,16 @@ public actor HuggingFaceAPI_Client {
             throw HuggingFaceError.invalidURL
         }
 
-        var request = URLRequest(url: url)
+        var headers: [String: String] = [:]
         if let token = currentToken(), !token.isEmpty {
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            headers["Authorization"] = "Bearer \(token)"
         }
+        let request = NetworkRequest(url: url, headers: headers)
 
-        let (data, response) = try await session.data(for: request)
-
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw HuggingFaceError.networkError
-        }
-
-        guard (200...299).contains(httpResponse.statusCode) else {
+        let response: NetworkResponse
+        do {
+            response = try await networkManager.send(request)
+        } catch let NetworkError.statusCode(httpResponse, data) {
             throw interpretHTTPError(
                 response: httpResponse,
                 data: data,
@@ -292,8 +294,8 @@ public actor HuggingFaceAPI_Client {
             )
         }
 
-        logger.info("HTTP response status: \(httpResponse.statusCode)")
-        let model = try JSONDecoder().decode(HuggingFaceModel_Data.self, from: data)
+        logger.info("HTTP response status: \(response.statusCode)")
+        let model = try JSONDecoder().decode(HuggingFaceModel_Data.self, from: response.data)
         logger.info("Model info retrieved")
         return model
     }
@@ -399,37 +401,23 @@ public actor HuggingFaceAPI_Client {
             try FileManager.default.createDirectory(at: destDir, withIntermediateDirectories: true)
         }
 
-        // Prepare request with optional auth
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        let headers: [String: String]
         if let token = currentToken(), !token.isEmpty {
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            headers = ["Authorization": "Bearer \(token)"]
+        } else {
+            headers = [:]
         }
 
-        // Try to fetch size for progress reporting
         var expected: Int64 = 0
         if let size = try? await getFileSize(modelId: modelId, fileName: fileName) {
             expected = size
         }
         progress(0.0, 0, expected)
 
-        let (bytesStream, response) = try await session.bytes(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw HuggingFaceError_Type.networkError
-        }
-
-        guard httpResponse.statusCode == 200 else {
-            throw interpretHTTPError(
-                response: httpResponse,
-                data: nil,
-                requestDescription: "GET /resolve/main direct"
-            )
-        }
-
         let tempFileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         let parentDir = tempFileURL.deletingLastPathComponent()
         if !FileManager.default.fileExists(atPath: parentDir.path) {
-            try FileManager.default.createDirectory(at: parentDir, withIntermediateDirectories: true)
+            try FileManager.default.createDirectory(atPath: parentDir.path, withIntermediateDirectories: true)
         }
         FileManager.default.createFile(atPath: tempFileURL.path, contents: nil)
         let handle = try FileHandle(forWritingTo: tempFileURL)
@@ -441,38 +429,20 @@ public actor HuggingFaceAPI_Client {
             }
         }
 
-        var buffer = Data()
-        buffer.reserveCapacity(64 * 1024)
-        var received: Int64 = 0
-        var lastPctEmitted: Double = -1
-        var lastUnknownEmissionBytes: Int64 = 0
-        let unknownEmissionThreshold: Int64 = 5 * 1024 * 1024
-
-        for try await byte in bytesStream {
-            try Task.checkCancellation()
-            buffer.append(byte)
-            received += 1
-
-            if buffer.count >= 64 * 1024 {
-                handle.write(buffer)
-                buffer.removeAll(keepingCapacity: true)
+        let downloadRequest = NetworkRequest(url: url, headers: headers)
+        let expectedTotal = expected
+        _ = try await networkManager.stream(
+            downloadRequest,
+            chunkHandler: { chunk in
+                try handle.seekToEnd()
+                try handle.write(contentsOf: chunk)
+            },
+            progressHandler: { downloaded, total in
+                let denominator = total > 0 ? total : expectedTotal
+                let pct = denominator > 0 ? min(1, Double(downloaded) / Double(denominator)) : 0
+                progress(pct, downloaded, denominator)
             }
-
-            if expected > 0 {
-                let pct = min(max(Double(received) / Double(expected), 0), 1)
-                if pct - lastPctEmitted >= 0.01 {
-                    lastPctEmitted = pct
-                    progress(pct, received, expected)
-                }
-            } else if received - lastUnknownEmissionBytes >= unknownEmissionThreshold {
-                lastUnknownEmissionBytes = received
-                progress(0.0, received, expected)
-            }
-        }
-
-        if !buffer.isEmpty {
-            handle.write(buffer)
-        }
+        )
 
         if FileManager.default.fileExists(atPath: destinationURL.path) {
             try? FileManager.default.removeItem(at: destinationURL)
@@ -480,9 +450,10 @@ public actor HuggingFaceAPI_Client {
         try FileManager.default.moveItem(at: tempFileURL, to: destinationURL)
         didMoveFile = true
 
-        let finalExpected = expected > 0 ? expected : received
-        progress(1.0, received, finalExpected)
-        logger.info("✅ Direct HTTP download completed for \(fileName) (\(received) bytes)")
+        let fileSize = (try? FileManager.default.attributesOfItem(atPath: destinationURL.path)[.size] as? Int64) ?? 0
+        let finalExpected = expected > 0 ? expected : fileSize
+        progress(1.0, finalExpected, finalExpected)
+        logger.info("✅ Direct HTTP download completed for \(fileName) (\(finalExpected) bytes)")
     }
 
     /// Resolve the actual file URL returned by the Hub snapshot helper.
@@ -538,25 +509,22 @@ public actor HuggingFaceAPI_Client {
         guard let url = URL(string: urlString) else {
             throw HuggingFaceError_Type.invalidURL
         }
-        var request = URLRequest(url: url)
-        request.httpMethod = "HEAD"
+        var headers: [String: String] = [:]
         if let token = currentToken(), !token.isEmpty {
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            headers["Authorization"] = "Bearer \(token)"
         }
-        let (_, response) = try await session.data(for: request)
-
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw HuggingFaceError_Type.networkError
-        }
-
-        guard (200...299).contains(httpResponse.statusCode) else {
+        let request = NetworkRequest(url: url, method: .head, headers: headers)
+        let response: NetworkResponse
+        do {
+            response = try await networkManager.send(request)
+        } catch let NetworkError.statusCode(httpResponse, data) {
             throw interpretHTTPError(
                 response: httpResponse,
-                data: nil,
+                data: data,
                 requestDescription: "HEAD /resolve/main"
             )
         }
-        let totalBytes = httpResponse.expectedContentLength
+        let totalBytes = response.urlResponse.expectedContentLength
         return totalBytes > 0 ? totalBytes : 0
     }
 
@@ -681,21 +649,19 @@ public actor HuggingFaceAPI_Client {
     public func validateToken(token: String) async throws -> String? {
         guard !token.isEmpty else { return nil }
         let url = URL(string: "https://huggingface.co/api/whoami-v2")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let headers = ["Authorization": "Bearer \(token)"]
+        let request = NetworkRequest(url: url, headers: headers)
         do {
-            let (data, response) = try await session.data(for: request)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                return nil
-            }
-            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+            let response = try await networkManager.send(request)
+            if let json = try? JSONSerialization.jsonObject(with: response.data) as? [String: Any],
                let user = json["user"] as? [String: Any],
                let name = user["name"] as? String
             {
                 return name
             }
             return "(valid, no username)"
+        } catch let NetworkError.statusCode(httpResponse, _) where httpResponse.statusCode == 401 {
+            return nil
         } catch {
             let logger = Logger(label: "HuggingFaceAPI")
             logger.error("Token validation failed: \(error)")
@@ -704,13 +670,15 @@ public actor HuggingFaceAPI_Client {
     }
 
     private func validateTokenViaSearch(token: String) async throws -> Bool {
-        var request = URLRequest(
-            url: URL(string: "https://huggingface.co/api/models?search=mlx&limit=1")!)
-        request.httpMethod = "GET"
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        let (_, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else { return false }
-        return httpResponse.statusCode == 200
+        let url = URL(string: "https://huggingface.co/api/models?search=mlx&limit=1")!
+        let headers = ["Authorization": "Bearer \(token)"]
+        let request = NetworkRequest(url: url, headers: headers)
+        do {
+            _ = try await networkManager.send(request)
+            return true
+        } catch {
+            return false
+        }
     }
 }
 
