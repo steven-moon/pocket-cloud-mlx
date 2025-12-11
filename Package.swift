@@ -18,6 +18,9 @@ let hasPocketCloudLogger = pocketCloudLoggerPath != nil
 let pocketCloudAIAgentRelativePaths = ["../pocket-cloud-ai-agent", "pocket-cloud-ai-agent"]
 let pocketCloudAIAgentPath = pocketCloudAIAgentRelativePaths.first { FileManager.default.fileExists(atPath: $0) }
 let hasPocketCloudAIAgent = pocketCloudAIAgentPath != nil
+let pocketCloudCommonRelativePaths = ["../pocket-cloud-common", "pocket-cloud-common"]
+let pocketCloudCommonPath = pocketCloudCommonRelativePaths.first { FileManager.default.fileExists(atPath: $0) }
+let hasPocketCloudCommon = pocketCloudCommonPath != nil
 
 var dependencies: [Package.Dependency] = [
     .package(url: "https://github.com/ml-explore/mlx-swift", from: "0.29.0"),
@@ -57,6 +60,12 @@ if hasPocketCloudLogger, let pocketCloudLoggerPath {
 
 if hasPocketCloudAIAgent, let pocketCloudAIAgentPath {
     dependencies.append(.package(path: pocketCloudAIAgentPath))
+}
+
+if hasPocketCloudCommon, let pocketCloudCommonPath {
+    dependencies.append(.package(path: pocketCloudCommonPath))
+    targetDependencies.append(.product(name: "PocketCloudCommon", package: "pocket-cloud-common"))
+    testDependencies.append(.product(name: "PocketCloudCommon", package: "pocket-cloud-common"))
 }
 
 var targets: [Target] = [
