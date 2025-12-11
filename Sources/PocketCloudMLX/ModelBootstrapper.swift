@@ -44,13 +44,17 @@ public final class ModelBootstrapper: @unchecked Sendable {
     private let bootstrapLock = NSLock()
     private let networkManager: NetworkManager
 
-    private init() {
+    public init(networkManager: NetworkManager = ModelBootstrapper.makeDefaultNetworkManager()) {
+        self.networkManager = networkManager
+    }
+
+    public static func makeDefaultNetworkManager() -> NetworkManager {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
         configuration.allowsConstrainedNetworkAccess = true
         configuration.allowsExpensiveNetworkAccess = true
         configuration.allowsCellularAccess = true
-        networkManager = NetworkManager(configuration: configuration)
+        return NetworkManager.makeDefault(tokenLoader: { nil }, configuration: configuration)
     }
 
     /// Bootstrap minimal model structures for reliable app startup
@@ -160,12 +164,7 @@ public final class ModelBootstrapper: @unchecked Sendable {
 
         // Try to download the actual config.json from HuggingFace
         do {
-            guard let encodedModelId = modelId.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
-                throw ModelBootstrapperError.fileCreationFailed(path)
-            }
-            let configURL = URL(string: "https://huggingface.co/\(encodedModelId)/resolve/main/config.json")!
-            let response = try await networkManager.send(NetworkRequest(url: configURL))
-            let data = response.data
+            let data = try await fetchConfig(for: modelId)
 
             // Validate that we got valid JSON
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
@@ -314,6 +313,16 @@ public final class ModelBootstrapper: @unchecked Sendable {
         }
 
         return true
+    }
+
+    /// Internal helper exposed for testing to verify NetworkManager wiring
+    func fetchConfig(for modelId: String) async throws -> Data {
+        guard let encodedModelId = modelId.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+            throw ModelBootstrapperError.invalidModelId(modelId)
+        }
+        let configURL = URL(string: "https://huggingface.co/\(encodedModelId)/resolve/main/config.json")!
+        let response = try await networkManager.send(NetworkRequest(url: configURL))
+        return response.data
     }
 }
 
