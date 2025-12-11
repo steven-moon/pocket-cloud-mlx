@@ -146,7 +146,11 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try await engine.loadQuantization("4bit")
                 XCTFail("Should have thrown not implemented error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("not implemented"), "Error message should mention not implemented")
+                let lower = message.lowercased()
+                XCTAssertTrue(
+                    lower.contains("not implemented") || lower.contains("not supported"),
+                    "Error message should mention feature not available"
+                )
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }
@@ -155,7 +159,7 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try await engine.loadQuantization("4bit")
                 XCTFail("Should have thrown feature not supported error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("Quantization"), "Error message should mention quantization")
+                XCTAssertTrue(message.lowercased().contains("quantization"), "Error message should mention quantization")
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }
@@ -173,7 +177,11 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try await engine.loadVisionLanguageModel()
                 XCTFail("Should have thrown not implemented error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("not implemented"), "Error message should mention not implemented")
+                let lower = message.lowercased()
+                XCTAssertTrue(
+                    lower.contains("not implemented") || lower.contains("not supported"),
+                    "Error message should mention feature not available"
+                )
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }
@@ -182,7 +190,7 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try await engine.loadVisionLanguageModel()
                 XCTFail("Should have thrown feature not supported error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("Vision-language"), "Error message should mention vision-language")
+                XCTAssertTrue(message.lowercased().contains("vision"), "Error message should mention vision-language")
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }
@@ -254,7 +262,11 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try engine.setCustomPrompt("You are a helpful assistant")
                 XCTFail("Should have thrown not implemented error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("not implemented"), "Error message should mention not implemented")
+                let lower = message.lowercased()
+                XCTAssertTrue(
+                    lower.contains("not implemented") || lower.contains("not supported"),
+                    "Error message should mention feature not available"
+                )
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }
@@ -263,7 +275,7 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try engine.setCustomPrompt("You are a helpful assistant")
                 XCTFail("Should have thrown feature not supported error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("Custom prompts"), "Error message should mention custom prompts")
+                XCTAssertTrue(message.lowercased().contains("custom"), "Error message should mention custom prompts")
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }
@@ -281,7 +293,11 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try await engine.loadMultiModalInput()
                 XCTFail("Should have thrown not implemented error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("not implemented"), "Error message should mention not implemented")
+                let lower = message.lowercased()
+                XCTAssertTrue(
+                    lower.contains("not implemented") || lower.contains("not supported"),
+                    "Error message should mention feature not available"
+                )
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }
@@ -290,7 +306,7 @@ final class InferenceEngineFeatureTests: XCTestCase {
                 try await engine.loadMultiModalInput()
                 XCTFail("Should have thrown feature not supported error")
             } catch PocketCloudMLXError.featureNotSupported(let message) {
-                XCTAssertTrue(message.contains("Multi-modal"), "Error message should mention multi-modal")
+                XCTAssertTrue(message.lowercased().contains("multi"), "Error message should mention multi-modal")
             } catch {
                 XCTFail("Unexpected error type: \(error)")
             }

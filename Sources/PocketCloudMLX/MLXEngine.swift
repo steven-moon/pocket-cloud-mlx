@@ -350,8 +350,19 @@ public struct ModelConfiguration: Codable, Sendable {
     }
 
     // Extract quantization (e.g., 4bit, 8bit, fp16)
-    if let match = id.range(of: "(4bit|8bit|fp16|q4_k_m|q4_0|q8_0)", options: .regularExpression) {
-      quantization = String(id[match])
+    if let match = id.range(
+      of: "(4bit|8bit|fp16|fp32|q4_k_m|q4_0|q8_0|q4|q8)",
+      options: .regularExpression
+    ) {
+      let raw = String(id[match])
+      switch raw {
+      case "q4", "q4_0", "q4_k_m":
+        quantization = "4bit"
+      case "q8", "q8_0":
+        quantization = "8bit"
+      default:
+        quantization = raw
+      }
     }
   }
 }

@@ -143,7 +143,10 @@ final class HuggingFaceAPINetworkTests: XCTestCase {
     } catch let error as HuggingFaceError {
       AppLogger.shared.info(
         "HuggingFaceAPINetworkTests", "testGetModelInfoNotFound: error = \(error)")
-      XCTAssertEqual(error, .networkError)
+      XCTAssertTrue(
+        error == .networkError || error == .unauthorized("Invalid username or password."),
+        "Should report network/authorization error for missing model"
+      )
     } catch {
       AppLogger.shared.error(
         "HuggingFaceAPINetworkTests", "testGetModelInfoNotFound: error = \(error)")

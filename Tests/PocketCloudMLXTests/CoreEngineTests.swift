@@ -130,7 +130,7 @@ final class CoreEngineTests: XCTestCase {
             modelType: .llm,
             gpuCacheLimit: 512 * 1024 * 1024,
             features: []
-        ) : ModelRegistry.qwen05B
+        ) : CoreEngineTests.selectRealTestModel()
 
         if useMockTests {
             mlxModelAvailable = true
@@ -521,6 +521,49 @@ final class CoreEngineTests: XCTestCase {
         } catch {
             return .failure(error)
         }
+    }
+}
+
+// MARK: - Test Helpers
+
+extension CoreEngineTests {
+    /// Picks a small, real model from the registry for integration tests
+    fileprivate static func selectRealTestModel() -> ModelConfiguration {
+        if let qwen = ModelRegistry.searchModels(
+            criteria: .init(query: "Qwen2.5-0.5B-Instruct")
+        ).first {
+            return qwen
+        }
+
+        if let qwen15 = ModelRegistry.searchModels(
+            criteria: .init(query: "Qwen1.5-0.5B")
+        ).first {
+            return qwen15
+        }
+
+        if let smallLLM = ModelRegistry.searchModels(
+            criteria: .init(maxSizeGB: 1.2, modelType: .llm, isSmallModel: true)
+        ).first {
+            return smallLLM
+        }
+
+        if let any = ModelRegistry.allModels.first {
+            return any
+        }
+
+        // Final fallback - stable small model
+        return ModelConfiguration(
+            name: "Fallback Llama 1B",
+            hubId: "mlx-community/Llama-3.2-1B-Instruct-4bit",
+            description: "Fallback model when registry is unavailable",
+            parameters: "1B",
+            quantization: "4bit",
+            architecture: "Llama",
+            maxTokens: 4096,
+            estimatedSizeGB: 0.6,
+            modelType: .llm,
+            gpuCacheLimit: 536_870_912
+        )
     }
 }
 

@@ -78,10 +78,10 @@ final class MLXIntegrationCoreTests: XCTestCase {
         print("✅ [MLX TEST] MLX is available!")
 
         // Test basic MLX functionality
-        let testArray = MLXArray([1.0, 2.0, 3.0])
+        let testArray = MLXArray([1.0 as Float, 2.0, 3.0])
         print("✅ [MLX TEST] MLX array creation successful: \(testArray)")
 
-        let doubledArray = testArray * 2.0
+        let doubledArray = testArray * (2.0 as Float)
         print("✅ [MLX TEST] Doubled array: \(doubledArray)")
 
         // Use .asArray(Float.self) to extract values for sum
@@ -200,7 +200,7 @@ final class MLXIntegrationCoreTests: XCTestCase {
             throw XCTSkip("Skipping real model test - mock tests forced")
         }
 
-        let testConfig = ModelRegistry.qwen05B
+        let testConfig = Self.selectRealTestModel()
 
         let engine = try await InferenceEngine.loadModel(testConfig) { progress in }
 
@@ -374,9 +374,11 @@ final class MLXIntegrationCoreTests: XCTestCase {
         print("✅ [HEALTH TEST] Health check completed")
         print("📋 [HEALTH TEST] Status: \(healthStatus)")
 
-        // Should either be healthy (if model exists) or unhealthy (if model doesn't exist)
-        XCTAssertTrue(healthStatus == .healthy || healthStatus == .needsAttention || healthStatus == .unhealthy,
-                     "Health check should return a valid status")
+        // Should either be healthy, repaired, or flagged for redownload
+        XCTAssertTrue(
+            healthStatus == .healthy || healthStatus == .repaired || healthStatus == .needsRedownload,
+            "Health check should return a valid status"
+        )
     }
 
     // MARK: - Feature Detection Tests
@@ -448,5 +450,45 @@ final class MLXIntegrationCoreTests: XCTestCase {
         MLX.GPU.clearCache()
         print("✅ [GPU TEST] GPU cache cleared successfully")
         #endif
+    }
+
+    // MARK: - Helpers
+
+    private static func selectRealTestModel() -> ModelConfiguration {
+        if let qwen = ModelRegistry.searchModels(
+            criteria: .init(query: "Qwen2.5-0.5B-Instruct")
+        ).first {
+            return qwen
+        }
+
+        if let qwen15 = ModelRegistry.searchModels(
+            criteria: .init(query: "Qwen1.5-0.5B")
+        ).first {
+            return qwen15
+        }
+
+        if let smallLLM = ModelRegistry.searchModels(
+            criteria: .init(maxSizeGB: 1.2, modelType: .llm, isSmallModel: true)
+        ).first {
+            return smallLLM
+        }
+
+        if let any = ModelRegistry.allModels.first {
+            return any
+        }
+
+        // Final fallback - stable small model
+        return ModelConfiguration(
+            name: "Fallback Llama 1B",
+            hubId: "mlx-community/Llama-3.2-1B-Instruct-4bit",
+            description: "Fallback model when registry is unavailable",
+            parameters: "1B",
+            quantization: "4bit",
+            architecture: "Llama",
+            maxTokens: 4096,
+            estimatedSizeGB: 0.6,
+            modelType: .llm,
+            gpuCacheLimit: 536_870_912
+        )
     }
 }
