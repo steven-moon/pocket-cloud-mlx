@@ -3,20 +3,20 @@ options:
   bundleIdPrefix: com.pocketcloud
   deploymentTarget:
     iOS: '18.0'
+    macOS: '15.0'
+    visionOS: '2.0'
+
+packages:
+  PocketCloudMLX:
+    url: ../../pocket-cloud-mlx
+  PocketCloudUI:
+    url: ../../pocket-cloud-ui  
+  PocketCloudLogger:
+    url: ../../pocket-cloud-logger
+  PocketCloudCommon:
+    url: ../../pocket-cloud-common
 
 targets:
-  # Simple iOS App for testing XcodeGen
-  PocketChat:
-    type: application
-    platform: iOS
-    sources: [Sources/PocketChat]
-    settings:
-      GENERATE_INFOPLIST_FILE: YES
-      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketChat
-
-workspace:
-  name: PocketChat
-  projects:
   # Universal iOS App (iPhone + iPad + Mac Catalyst + visionOS)
   PocketChat-Universal:
     type: application

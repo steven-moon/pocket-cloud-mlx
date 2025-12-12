@@ -1,0 +1,42 @@
+name: PocketCloudChat
+options:
+  bundleIdPrefix: com.pocketcloud
+  deploymentTarget:
+    iOS: '18.0'
+    macOS: '15.0'
+    visionOS: '2.0'
+
+packages:
+  PocketCloudMLX:
+    path: ..
+  PocketCloudUI:
+    path: ../../pocket-cloud-ui
+  PocketCloudLogger:
+    path: ../../pocket-cloud-logger
+  PocketCloudCommon:
+    path: ../../pocket-cloud-common
+
+targets:
+  # Universal iOS App (iPhone + iPad + Mac Catalyst + visionOS)
+  PocketCloudChat-Universal:
+    type: application
+    platform: iOS
+    sources: [Sources/Shared, Sources/iOS, Sources/PocketCloudChat]
+    settings:
+      GENERATE_INFOPLIST_FILE: NO
+      INFOPLIST_FILE: Sources/iOS/Info.plist
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudChat
+    dependencies:
+      - package: PocketCloudMLX
+        product: PocketCloudMLX
+      - package: PocketCloudUI
+        product: PocketCloudUI
+      - package: PocketCloudLogger
+        product: PocketCloudLogger
+      - package: PocketCloudCommon
+        product: PocketCloudCommon
+
+workspace:
+  name: PocketCloudChat
+  projects:
+    - PocketCloudChat.xcodeproj
