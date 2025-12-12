@@ -1,59 +1,169 @@
 # PocketCloud MLX
 
-PocketCloud MLX is the core local inference engine for the PocketCloud ecosystem, providing native Apple Silicon acceleration via MLX.
+**Core Local Inference Engine - Apple Silicon Acceleration for Private AI**
 
-## Origin & Legacy
+The high-performance local inference engine powering the PocketCloud ecosystem with native Apple Silicon acceleration via MLX. Enables private, local-first AI inference across vision models, language models, and embeddings while optimizing for thermal constraints and battery life on mobile devices.
 
-This project is a **fork/upgrade** of the [mlx-engine](https://github.com/steven-moon/mlx-engine) repository, which was the foundational local inference engine that powered the original [mlx-engine-cursor-workspace](https://github.com/steven-moon/mlx-engine-cursor-workspace) — the direct predecessor to the PocketCloud ecosystem.
+[![Swift](https://img.shields.io/badge/Swift-6.0-orange.svg)](https://swift.org)
+[![Platforms](https://img.shields.io/badge/Platforms-macOS%20|%20iOS%20|%20visionOS-blue.svg)](https://developer.apple.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-The `mlx-engine` is currently in production use and will continue to be maintained for backward compatibility with existing projects. This new `pocket-cloud-mlx` builds upon that foundation with improvements tailored for the PocketCloud architecture.
+## 🌟 Features
 
-## Development Setup
+### **Native Apple Silicon Acceleration**
+- **MLX-Powered Performance**: Harnessing Apple Silicon Neural Engines for 10x faster inference than CPU-only alternatives
+- **Unified Architecture**: Same performant core across Mac Studio, MacBook Pro, iPhone Pro, and Apple Vision Pro
+- **Energy-Efficient Computing**: Optimized for thermal constraints and battery life preservation
 
-### Referencing Legacy Code
+### **Multi-Modal Inference Support**
+- **Vision Intelligence**: Florence-2, CLIP integration for real-time visual analysis on-device
+- **Language Models**: Llama, Phi, and other leading open-source LLMs optimized for Apple Silicon
+- **Embedding Models**: Local semantic search with privacy-preserving vector processing
+- **Streaming Outputs**: Real-time response generation with adaptive quality-speed tradeoffs
 
-During development, it's helpful to have the legacy `mlx-engine` repository available locally for reference. To set this up:
+### **Memory & Performance Optimization**
+- **Dynamic Quantization**: Automatic model compression based on device capabilities and task requirements
+- **Progressive Loading**: Lazy model initialization with memory-mapped loading for minimal startup time
+- **Adaptive Batching**: Intelligent batch size optimization based on thermal and memory constraints
 
-1. Clone the legacy repository into this project directory:
+## 🏗️ Architecture
 
-   ```bash
-   cd pocket-cloud-mlx
-   git clone git@github.com:steven-moon/mlx-engine.git mlx-engine-legacy
-   ```
+```
+PocketCloudMLX/
+├── Sources/
+│   ├── PocketCloudMLX/
+│   │   ├── Core/                    # MLX C++ bindings and acceleration layer
+│   │   │   ├── AccelerationEngine.swift
+│   │   │   ├── MemoryManager.swift
+│   │   │   └── PerformanceMonitor.swift
+│   │   ├── Models/                  # Model management and loading
+│   │   │   ├── ModelLoader.swift
+│   │   │   ├── QuantizationEngine.swift
+│   │   │   └── ModelCache.swift
+│   │   ├── Inference/               # Inference execution engines
+│   │   │   ├── LanguageEngine.swift # LLM inference
+│   │   │   ├── VisionEngine.swift   # Vision model processing
+│   │   │   └── EmbeddingEngine.swift # Vector embeddings
+│   │   └── Utils/                   # Cross-platform utilities
+│   │       ├── MetalBridge.swift    # Metal compute integration
+│   │       └── PlatformAdapter.swift # Hardware adaptation
+├── Tests/
+└── Documentation/
+    ├── Implementation-Plan/          # Development roadmap
+    └── Performance-Guide.md          # Optimization techniques
+```
 
-2. The `mlx-engine-legacy` folder is already added to `.gitignore`, so it won't be committed to this repository.
+## 📦 Dependencies
 
-3. Use this local copy to reference the original implementation while building out the PocketCloud MLX features.
+Part of the **PocketCloud Ecosystem**:
+- [PocketCloudCommon](https://github.com/steven-moon/pocket-cloud-common) - Shared utilities and cryptography
+- [PocketCloudLogger](https://github.com/steven-moon/pocket-cloud-logger) - Performance monitoring and observability
 
-### Why Keep Legacy Code Locally?
+**External Dependencies:**
+- [MLX](https://github.com/ml-explore/mlx) - Apple Silicon machine learning framework
 
-- **Reference Implementation**: Easily compare and port existing MLX functionality
-- **Migration Path**: Understand the original architecture while designing improvements
-- **Testing Compatibility**: Verify that new implementations maintain compatibility with existing model formats
-- **Performance Benchmarking**: Compare performance between legacy and new implementations
+## 🚀 Getting Started
 
-## Relationship to PocketCloud Ecosystem
+### Prerequisites
 
-PocketCloud MLX serves as the core local inference engine across:
+- **Swift 6.0+**
+- **Apple Silicon Mac** (M1/M2/M3/M4) or **iOS 18+**
+- **Xcode 16.0+**
 
-- **PocketCloud AI Agent** — Primary backend for local-first AI inference
-- **PocketCloud BrainDeck** — Local embeddings and semantic search
-- **Sample Apps** — Reference implementations and demos
-- **Future PocketCloud applications** — Any app requiring local ML inference
+### Installation
 
-## Features (Planned)
+Add to your `Package.swift`:
 
-- Native Apple Silicon (M1/M2/M3/M4) acceleration via MLX
-- Support for LLMs, Vision Models, and Embedding Models
-- Efficient memory management for large models
-- Streaming inference support
-- Model quantization and optimization
-- Cross-platform abstraction layer
+```swift
+dependencies: [
+    .package(url: "https://github.com/steven-moon/pocket-cloud-mlx.git", from: "1.0.0"),
+    .package(path: "../pocket-cloud-common"),
+    .package(path: "../pocket-cloud-logger")
+],
+targets: [
+    .target(
+        name: "YourApp",
+        dependencies: [
+            "PocketCloudMLX",
+            "PocketCloudCommon",
+            "PocketCloudLogger"
+        ]
+    )
+]
+```
 
-## License
+### Quick Start
 
-[TBD]
+```swift
+import PocketCloudMLX
 
-## Contributing
+// Initialize MLX engine with automatic hardware detection
+let engine = MLXInferenceEngine()
 
-[TBD]
+// Load and quantize a vision model for mobile efficiency
+let visionModel = try await engine.loadVisionModel(
+    "florence-2-base",
+    quantization: .int4  // 75% memory reduction
+)
+
+// Process camera input with zero latency
+let cameraFrame = camera.captureFrame()
+let visionResult = try await engine.processVision(
+    image: cameraFrame,
+    model: visionModel,
+    task: .caption  // Real-time image captioning
+)
+
+// Run LLM inference with streaming
+let languageModel = try await engine.loadLanguageModel(
+    "llama-3.1-8b-instruct",
+    contextWindow: 4096
+)
+
+for try await token in engine.generateStream(
+    prompt: "Explain quantum computing",
+    model: languageModel,
+    maxTokens: 500
+) {
+    print(token, terminator: "")
+}
+
+// Generate embeddings for semantic search
+let embeddingModel = try await engine.loadEmbeddingModel("bge-small-en-v1.5")
+let documents = ["AI safety", "machine learning ethics", "neural networks"]
+let embeddings = try await engine.generateEmbeddings(
+    texts: documents,
+    model: embeddingModel
+)
+```
+
+## 📖 Documentation
+
+- [Implementation Plan](Documentation/Implementation-Plan/implementation-plan-overview.md)
+- [Performance Optimization Guide](Documentation/Performance-Guide.md)
+- [Model Compatibility Matrix](Documentation/Model-Support.md)
+
+## 🤝 Contributing
+
+### Development Setup
+
+This project is a **fork/upgrade** of the [mlx-engine](https://github.com/steven-moon/mlx-engine) repository. For reference:
+
+```bash
+# Clone legacy code for comparison (optional)
+git clone git@github.com:steven-moon/mlx-engine.git mlx-engine-legacy
+```
+
+**Contribution Areas:**
+- MLX integration enhancements and performance improvements
+- New model architecture support and quantization techniques
+- Cross-platform hardware adaptation and optimization
+- Memory management and thermal constraint handling
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+**PocketCloud MLX: Local Inference Revolution on Apple Silicon** 🧠⚡
