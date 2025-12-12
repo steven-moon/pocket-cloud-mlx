@@ -1,0 +1,128 @@
+name: PocketChat
+options:
+  bundleIdPrefix: com.pocketcloud
+  deploymentTarget:
+    iOS: '18.0'
+    macOS: '15.0'
+    visionOS: '2.0'
+
+packages:
+  PocketCloudMLX:
+    path: ../
+  PocketCloudUI:
+    path: ../../pocket-cloud-ui
+  PocketCloudLogger:
+    path: ../../pocket-cloud-logger
+  PocketCloudCommon:
+    path: ../../pocket-cloud-common
+
+targets:
+  # Universal iOS App (iPhone + iPad + Mac Catalyst + visionOS)
+  PocketChat-Universal:
+    type: application
+    platform: iOS
+    sources: [Sources/Shared, Sources/iOS, Sources/PocketChat]
+    resources:
+      - path: Resources
+        buildPhase: resources
+      - path: Sources/PocketChat/Assets.xcassets
+        buildPhase: resources
+      - path: Sources/PocketChat/MacAppIcon.icns
+        buildPhase: resources
+        platformFilters: [macos]
+    settings:
+      GENERATE_INFOPLIST_FILE: NO
+      INFOPLIST_FILE: Sources/iOS/Info.plist
+      DEVELOPMENT_TEAM: M3W42R75UU
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketChat
+      CODE_SIGN_IDENTITY: "iPhone Developer"
+      CODE_SIGNING_REQUIRED: YES
+      CODE_SIGNING_ALLOWED: YES
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      # Device support: iPhone, iPad, visionOS only (no Mac designed for iPhone/iPad)
+      TARGETED_DEVICE_FAMILY: "1,2,6"  # iPhone, iPad, visionOS
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+      # Platform-specific optimizations
+      ENABLE_HARDENED_RUNTIME: YES
+      ENABLE_APP_SANDBOX: NO
+      REGISTER_APP_GROUPS: YES
+    dependencies:
+      - package: PocketCloudMLX
+        product: PocketCloudMLX
+      - package: PocketCloudUI
+        product: PocketCloudUI
+      - package: PocketCloudLogger
+        product: PocketCloudLogger
+      - package: PocketCloudCommon
+        product: PocketCloudCommon
+
+  # Native macOS App
+  PocketChat-macOS:
+    type: application
+    platform: macOS
+    sources: [Sources/Shared, Sources/PocketChat]
+    resources:
+      - path: Sources/PocketChat/Assets.xcassets
+        buildPhase: resources
+      - path: Sources/PocketChat/MacAppIcon.icns
+        buildPhase: resources
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketChat.macOS
+      DEVELOPMENT_TEAM: M3W42R75UU
+      ENABLE_HARDENED_RUNTIME: YES
+      CODE_SIGNING_REQUIRED: YES
+      CODE_SIGNING_ALLOWED: YES
+      # Apple Intelligence requires Apple silicon; ship arm64-only slice
+      EXCLUDED_ARCHS: x86_64 arm64e
+      REGISTER_APP_GROUPS: YES
+    dependencies:
+      - package: PocketCloudMLX
+        product: PocketCloudMLX
+      - package: PocketCloudUI
+        product: PocketCloudUI
+      - package: PocketCloudLogger
+        product: PocketCloudLogger
+      - package: PocketCloudCommon
+        product: PocketCloudCommon
+
+  # Unit Tests
+  PocketChatTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [Tests/PocketChatTests]
+    dependencies:
+      - package: PocketCloudMLX
+        product: PocketCloudMLX
+    settings:
+      ENABLE_TEST_DISCOVERY: YES
+      GENERATE_INFOPLIST_FILE: YES
+
+  # UI Tests
+  PocketChatUITests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests/PocketChatUITests]
+    settings:
+      DEVELOPMENT_TEAM: M3W42R75UU
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketChat.UITests
+      CODE_SIGN_IDENTITY: "iPhone Developer"
+      CODE_SIGNING_REQUIRED: YES
+      CODE_SIGNING_ALLOWED: YES
+    dependencies:
+      - target: PocketChat-Universal
+      - package: PocketCloudMLX
+        product: PocketCloudMLX
+
+    info:
+      properties:
+        CFBundleDisplayName: PocketChatUITests
+        CFBundleName: PocketChatUITests
+        CFBundleIdentifier: com.pocketcloud.PocketChat.UITests
+        CFBundleVersion: "1.0"
+        CFBundleShortVersionString: "1.0"
+
+workspace:
+  name: PocketChat
+  projects:
+    - PocketChat.xcodeproj

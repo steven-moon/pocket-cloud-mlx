@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>MLX Chat</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.clevercoding.MLXChatApp</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>MLXChatApp</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>15.0</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2024. All rights reserved.</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>MLX Chat uses speech recognition to convert your voice input into text, allowing you to interact with the AI assistant hands-free.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>MLX Chat needs access to your microphone to enable voice input for hands-free interaction with the AI assistant.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>MLX Chat may use your camera to capture images for sharing with the AI assistant.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>MLX Chat may access your photo library to allow you to share images with the AI assistant.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>MLX Chat may save generated images or content to your photo library.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>MLX Chat may use your location to provide location-aware responses and context.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>MLX Chat may access your contacts to help with contact-related queries and tasks.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>MLX Chat may access your calendar to help with scheduling and event-related queries.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>MLX Chat may access your reminders to help manage tasks and to-do lists.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>MLX Chat may use Bluetooth to connect with nearby devices and accessories.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>MLX Chat may access your local network to connect with compatible devices and services.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>MLX Chat may access your Apple Music library to help with music-related queries and tasks.</string>
+	<key>NSHomeKitUsageDescription</key>
+	<string>MLX Chat may access your HomeKit accessories to help control your smart home devices.</string>
+</dict>
+</plist>

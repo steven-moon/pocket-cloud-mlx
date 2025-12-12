@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aps-environment</key>
+	<string>development</string>
+	<key>com.apple.developer.ClassKit-environment</key>
+	<string>development</string>
+	<key>com.apple.developer.aps-environment</key>
+	<string>development</string>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>webcredentials:example.com</string>
+	</array>
+	<key>com.apple.developer.background-tasks.continued-processing.gpu</key>
+	<true/>
+	<key>com.apple.developer.default-data-protection</key>
+	<string>NSFileProtectionComplete</string>
+	<key>com.apple.developer.device-discovery.pairing-access</key>
+	<string>default</string>
+	<key>com.apple.developer.devicecheck.app-attest-opt-in</key>
+	<array>
+		<string>CDhash</string>
+	</array>
+	<key>com.apple.developer.devicecheck.appattest-environment</key>
+	<string>development</string>
+	<key>com.apple.developer.fileprovider.testing-mode</key>
+	<true/>
+	<key>com.apple.developer.group-session</key>
+	<true/>
+	<key>com.apple.developer.kernel.increased-memory-limit</key>
+	<true/>
+	<key>com.apple.developer.sensitivecontentanalysis.client</key>
+	<array>
+		<string>analysis</string>
+	</array>
+	<key>com.apple.developer.user-fonts</key>
+	<array/>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.clevercoding.mlx-shared</string>
+	</array>
+	<key>com.apple.security.hardened-process</key>
+	<true/>
+	<key>com.apple.security.hardened-process.checked-allocations</key>
+	<true/>
+	<key>com.apple.security.hardened-process.checked-allocations.no-tagged-receive</key>
+	<true/>
+	<key>com.apple.security.hardened-process.dyld-ro</key>
+	<true/>
+	<key>com.apple.security.hardened-process.enhanced-security-version</key>
+	<integer>1</integer>
+	<key>com.apple.security.hardened-process.hardened-heap</key>
+	<true/>
+	<key>com.apple.security.hardened-process.platform-restrictions</key>
+	<integer>2</integer>
+</dict>
+</plist>
