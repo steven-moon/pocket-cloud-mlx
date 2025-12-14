@@ -1,0 +1,153 @@
+name: PocketCloudMLX
+options:
+  bundleIdPrefix: com.pocketcloud
+  deploymentTarget:
+    iOS: '18.0'
+    macOS: '15.0'
+
+packages:
+  mlx-swift:
+    url: https://github.com/ml-explore/mlx-swift
+    from: 0.10.0
+  mlx-swift-examples:
+    url: https://github.com/ml-explore/mlx-swift-examples
+    branch: main
+  Yams:
+    url: https://github.com/jpsim/Yams
+    from: 5.0.0
+  PocketCloudLogger:
+    path: ../pocket-cloud-logger
+  PocketCloudUI:
+    path: ../pocket-cloud-ui
+  PocketCloudCommon:
+    path: ../pocket-cloud-common
+
+# Main XcodeGen targets
+
+targets:
+  PocketCloudMLX_macOS:
+    type: framework
+    platform: macOS
+    deploymentTarget: '15.0'
+    sources: [Sources/PocketCloudMLX]
+    resources: [Sources/PocketCloudMLX/Resources/**]
+    dependencies:
+      - package: mlx-swift
+        product: MLX
+      - package: mlx-swift-examples
+        product: MLXLLM
+      - package: mlx-swift-examples
+        product: MLXLMCommon
+      - package: mlx-swift-examples
+        product: MLXVLM
+      - package: Yams
+        product: Yams
+      - package: PocketCloudLogger
+        product: PocketCloudLogger
+    settings:
+      CODE_SIGN_IDENTITY: "-"
+      MACH_O_TYPE: mh_dylib
+      EXCLUDED_ARCHS: arm64e
+      EXCLUDED_ARCHS[sdk=iphonesimulator*]: x86_64
+      GENERATE_INFOPLIST_FILE: YES
+      MARKETING_VERSION: "1.0"
+      CURRENT_PROJECT_VERSION: "1"
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudMLX.macOS
+      module_name: PocketCloudMLX
+      PRODUCT_NAME: PocketCloudMLX
+  PocketCloudMLX_iOS:
+    type: framework
+    platform: iOS
+    deploymentTarget: '18.0'
+    sources: [Sources/PocketCloudMLX]
+    resources: [Sources/PocketCloudMLX/Resources/**]
+    dependencies:
+      - package: mlx-swift
+        product: MLX
+      - package: mlx-swift-examples
+        product: MLXLLM
+      - package: mlx-swift-examples
+        product: MLXLMCommon
+      - package: mlx-swift-examples
+        product: MLXVLM
+      - package: Yams
+        product: Yams
+      - package: PocketCloudLogger
+        product: PocketCloudLogger
+    settings:
+      CODE_SIGN_STYLE: Automatic
+      CODE_SIGNING_ALLOWED: YES
+      CODE_SIGNING_REQUIRED: YES
+      DEVELOPMENT_TEAM: M3W42R75UU
+      MACH_O_TYPE: mh_dylib
+      EXCLUDED_ARCHS[sdk=iphonesimulator*]: x86_64
+      GENERATE_INFOPLIST_FILE: YES
+      MARKETING_VERSION: "1.0"
+      CURRENT_PROJECT_VERSION: "1"
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudMLX
+      module_name: PocketCloudMLX
+      PRODUCT_NAME: PocketCloudMLX
+  PocketCloudMLXTests_macOS:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: '15.0'
+    sources: [Tests/PocketCloudMLXTests]
+    dependencies:
+      - target: PocketCloudMLX_macOS
+      - package: mlx-swift
+        product: MLX
+      - package: mlx-swift-examples
+        product: MLXLLM
+      - package: mlx-swift-examples
+        product: MLXLMCommon
+      - package: mlx-swift-examples
+        product: MLXVLM
+    settings:
+      CODE_SIGN_IDENTITY: "-"
+      EXCLUDED_ARCHS[sdk=iphonesimulator*]: x86_64
+      EXCLUDED_ARCHS: arm64e
+      ENABLE_TEST_DISCOVERY: YES
+      GENERATE_INFOPLIST_FILE: YES
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudMLXTests.macOS
+      FRAMEWORK_SEARCH_PATHS: ["$(inherited)", "$(BUILT_PRODUCTS_DIR)"]
+  PocketCloudMLXTests_iOS:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: '18.0'
+    sources: [Tests/PocketCloudMLXTests]
+    dependencies:
+      - target: PocketCloudMLX_iOS
+      - package: mlx-swift
+        product: MLX
+      - package: mlx-swift-examples
+        product: MLXLLM
+      - package: mlx-swift-examples
+        product: MLXLMCommon
+      - package: mlx-swift-examples
+        product: MLXVLM
+    settings:
+      CODE_SIGN_STYLE: Automatic
+      CODE_SIGNING_ALLOWED: YES
+      CODE_SIGNING_REQUIRED: YES
+      DEVELOPMENT_TEAM: M3W42R75UU
+      EXCLUDED_ARCHS[sdk=iphonesimulator*]: x86_64
+      ENABLE_TEST_DISCOVERY: YES
+      GENERATE_INFOPLIST_FILE: YES
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudMLXTests.iOS
+      FRAMEWORK_SEARCH_PATHS: ["$(inherited)", "$(BUILT_PRODUCTS_DIR)"]
+
+schemes:
+  PocketCloudMLX macOS:
+    build:
+      targets:
+        PocketCloudMLX_macOS: all
+    test:
+      targets:
+        - PocketCloudMLXTests_macOS
+  PocketCloudMLX iOS:
+    build:
+      targets:
+        PocketCloudMLX_iOS: all
+    test:
+      targets:
+        - PocketCloudMLXTests_iOS
