@@ -4,10 +4,10 @@
 // Purpose       : Quick context for AI agents. Use these bread crumbs to navigate code and docs.
 //
 // Key Types in this file:
-//   - typealias AppStyle = AIDevSwiftUIKit.AppStyle
-//   - typealias ThemeMode = AIDevSwiftUIKit.ThemeMode
-//   - typealias ThemeTokens = AIDevSwiftUIKit.ThemeTokens
-//   - typealias StyleManager = AIDevSwiftUIKit.StyleManager
+//   - typealias AppStyle = PocketCloudUI.AppStyle
+//   - typealias ThemeMode = PocketCloudUI.ThemeMode
+//   - typealias ThemeTokens = PocketCloudUI.ThemeTokens
+//   - typealias StyleManager = PocketCloudUI.StyleManager
 //
 // Living Docs:
 //   - Main README: mlx-engine/Documentation/README.md
@@ -30,10 +30,10 @@ import PocketCloudUI
 
 // MARK: - Re-export SwiftUIKit Styling Types
 
-public typealias AppStyle = AIDevSwiftUIKit.AppStyle
-public typealias ThemeMode = AIDevSwiftUIKit.ThemeMode
-public typealias ThemeTokens = AIDevSwiftUIKit.ThemeTokens
-public typealias StyleManager = AIDevSwiftUIKit.StyleManager
+public typealias AppStyle = PocketCloudUI.AppStyle
+public typealias ThemeMode = PocketCloudUI.ThemeMode
+public typealias ThemeTokens = PocketCloudUI.ThemeTokens
+public typealias StyleManager = PocketCloudUI.StyleManager
 
 // MARK: - Compatibility Extensions
 

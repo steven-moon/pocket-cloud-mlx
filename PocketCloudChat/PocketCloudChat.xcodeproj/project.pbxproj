@@ -3,85 +3,174 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033F8DA825D0CCC1519C1C44 /* ModelRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1D746B6511B8A418A9D33 /* ModelRecommendation.swift */; };
 		03923A562DFD4B9CFA0D184B /* MCPTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0DA34338588CCEA8C6F74E /* MCPTools.swift */; };
+		0778EE03AD29619CAA41E497 /* PocketCloudLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 599DDB242CB8F1E702B8BF8E /* PocketCloudLogger */; };
+		09424BB6979F51B9F2AFD539 /* ModelManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14AEE487EABB93A4415BBA6 /* ModelManagerTests.swift */; };
 		0CA859A65B634458258698EC /* ModelDiscoveryManager+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB68EF4DECC49A08B3F51B6 /* ModelDiscoveryManager+Verification.swift */; };
+		0E31627E238EB5B750CD8F2A /* DocumentEngine+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD907574F81131FDC828DBF /* DocumentEngine+Storage.swift */; };
+		0FEF99BE51812BD1CF0A43D8 /* ChatOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDEB25DDEC0049FDF89FBC /* ChatOperations.swift */; };
+		11599AFDA394074F2749182C /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BAF5C4B7EC50DBDE383DF4 /* OnboardingStepView.swift */; };
 		14157211650E6B9CA728E0C1 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09E36A240465A8DC3E8DC2 /* ChatViewModel.swift */; };
+		144142193552FA74062471C9 /* PocketCloudCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF6B0DAAFBD17C07B3C6185 /* PocketCloudCommon */; };
+		15FE0D01605300548C48F004 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED5C2AF97EB89CAEC9CBBED /* MessageBubble.swift */; };
+		17787B42E087B8B8CA6D59C7 /* PocketCloudMLX in Frameworks */ = {isa = PBXBuildFile; productRef = 58CECAD14DEF8C1707B1C154 /* PocketCloudMLX */; };
 		17B181826EF6DDF03DC75DB2 /* OpenAICompatibilityServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19F9C3535E1CF2CEA9A65A /* OpenAICompatibilityServer.swift */; };
+		18CA8A9FCDAE54E11D16DDB9 /* HuggingFaceModelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0319A57732FF46AEA4A65C /* HuggingFaceModelDetailView.swift */; };
 		199412A24080A4955414B9A8 /* DocumentFileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E6FB87B3D55A99D8475BC /* DocumentFileCard.swift */; };
+		19BA6097B5FDB7CF74FF5F6C /* ModelDiscoveryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A10C8CE117BF17D8AC1397 /* ModelDiscoveryManager.swift */; };
 		1ACD1B34809CCDAB91D2847E /* ChatEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60712BFEBBC71A2EAB3995FB /* ChatEngine.swift */; };
 		1BB7BB9D444EF92EBB113C78 /* AutonomousProblemSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A1A20C42E5B673971AA97 /* AutonomousProblemSolver.swift */; };
+		1CD2AC57292FD4239C2E1C53 /* ModelDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E6D43E7E9C992FB66875 /* ModelDiscoveryView.swift */; };
+		1FFDC4B646D4AB6AF949AF8E /* HuggingFaceAPINetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45DBB360F6673B9949FB4A /* HuggingFaceAPINetworkTests.swift */; };
+		22A284ADD7449C869D6C38A4 /* ChatHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5055FFAF58F723D7D04310D /* ChatHistoryStore.swift */; };
 		23391F3AA94E8F5D7AB8DE12 /* MCPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A4F9F96A78F8B7483DA3C /* MCPManager.swift */; };
+		27890E07A4071D07F5166578 /* ModularDocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CEDD00419E308C5DC8B72 /* ModularDocumentPickerView.swift */; };
+		2834D0879724A12CEAE9CC51 /* AppleIntelligenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4721912F15839BA43FEACF7 /* AppleIntelligenceManager.swift */; };
+		28BAEAFBD50E28D76BB2D3DE /* ModelRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA270245C7D0A0BC51B506D /* ModelRegistryTests.swift */; };
+		2C4E11C11BD25F556B4C2526 /* CoreEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2BA18C3E035C28CE524DA6 /* CoreEngineTests.swift */; };
+		2EC5D9D49FA2CD6717890287 /* ModelHubDownloadBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B3195A9FD3B6C85F7E075F /* ModelHubDownloadBar.swift */; };
+		2EF3F69FFAC4E19F913A48A2 /* ModelDiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998CE90CBF388D43A39417 /* ModelDiscoveryViewModel.swift */; };
+		3041590C3B36F725157F8C29 /* MacAppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5C80A5041F0828D17229DACD /* MacAppIcon.icns */; };
 		30737C76B1923141F6A91791 /* DocumentEngine+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD907574F81131FDC828DBF /* DocumentEngine+Storage.swift */; };
 		338BA177EAED1C94F602EBD6 /* ChatHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5055FFAF58F723D7D04310D /* ChatHistoryStore.swift */; };
 		344F9EE73B2DB28C162237BE /* DocumentEngine+DragDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72CD41E03E96A6B5D83BDD /* DocumentEngine+DragDrop.swift */; };
 		354F07EE45E10F4B52792B94 /* PocketChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF58E39A774908726FBBE6B /* PocketChatApp.swift */; };
 		391C608E34573C504A62EFC7 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8F454744B23590D78DB24 /* StyleManager.swift */; };
 		393FD9185C6A1784E970720D /* ModelCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFC85750105FE5F22A2D50 /* ModelCardView.swift */; };
+		39C5FB9088520CE6B2A23AFB /* MLXChatAppIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7452BDDE6E322AA5213D01 /* MLXChatAppIntegrationTests.swift */; };
+		3E6F4EB3DEFA9B078EC9941F /* ModelDiscoveryManager+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB68EF4DECC49A08B3F51B6 /* ModelDiscoveryManager+Verification.swift */; };
+		42EDC1B3E085D5ACEA60C408 /* LoRAAdapterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279FB7B27A2673AC112A1 /* LoRAAdapterManager.swift */; };
 		441EEE7EA9CA634BAF466BB8 /* PocketCloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = D8FBB8899749449DE4BE7F6F /* PocketCloudUI */; };
+		464911EE45DFFE03F1CA8189 /* ChatSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B9A9C512987F0E5F3AF4F2 /* ChatSessionTests.swift */; };
+		4AACE18B36E4F7516A8D6847 /* ModelDiscoveryManager+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000818461DE3C732BDE33E1 /* ModelDiscoveryManager+Download.swift */; };
+		4B4866EF24A3E6E4BAE0D391 /* EnhancedMLXFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA17F31042465FCC7F2C91 /* EnhancedMLXFeatures.swift */; };
+		4BB231482E75EA60030D2DDB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453DA48D1128406F123146C /* ContentView.swift */; };
+		4E4976780632985A7528BC67 /* DocumentFileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E6FB87B3D55A99D8475BC /* DocumentFileCard.swift */; };
 		4E6FB8D14B29F59A133D16BB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABD4B32E5B1427C210A4AE /* ChatView.swift */; };
+		4F3ECAD08097ACE8AA145C31 /* DeviceCompatibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0D8173952CBC13D16D9F7 /* DeviceCompatibilityView.swift */; };
 		4FF9E52375E0C2C416A80D93 /* PocketCloudCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B54DE5D5A8EEC9AA819B33DB /* PocketCloudCommon */; };
+		523B4D2D72D7F5E73A4D7803 /* PocketChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF58E39A774908726FBBE6B /* PocketChatApp.swift */; };
 		546CCC91345A9DEFE9D3F0F0 /* EnhancedMLXFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA17F31042465FCC7F2C91 /* EnhancedMLXFeatures.swift */; };
+		56B5FF52CDCB758063403319 /* DocumentEngine+Processing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B306E529D3100B66C63D74 /* DocumentEngine+Processing.swift */; };
 		56C60E5721A5023F101168AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453DA48D1128406F123146C /* ContentView.swift */; };
 		585164D6D5A57CF9EB35030E /* ModelSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B64A56B003AF0CB83ACDFE /* ModelSetupView.swift */; };
+		5863E02002E38EADA3B515DE /* OpenAICompatibilityServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19F9C3535E1CF2CEA9A65A /* OpenAICompatibilityServer.swift */; };
 		5AC7D92980BB23B175AE5590 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617E1E1B03774B5978111A96 /* ModelManager.swift */; };
+		5DC5A66ABF4F918E525AF7C1 /* PocketCloudMLX in Frameworks */ = {isa = PBXBuildFile; productRef = 6689282856B5950A679F1D58 /* PocketCloudMLX */; };
 		607DA5F9A5300E533F9C5638 /* DocumentEngine+Processing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B306E529D3100B66C63D74 /* DocumentEngine+Processing.swift */; };
 		61293E779DE2B1FE7F46EC6E /* DocumentEngine+Imports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239AA9C84D8DCF21067B2E5 /* DocumentEngine+Imports.swift */; };
+		62AB7572515D4960A454D0AB /* ModelDiscoveryDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94E7B4A5BADD1FDB3FE9027 /* ModelDiscoveryDebugView.swift */; };
+		6418A1906E86C2A4C9B5C09D /* ModelDownloadConsolidatedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAA11221C2E0E399F30844 /* ModelDownloadConsolidatedTests.swift */; };
+		66936D526FBE9E90469831F6 /* HuggingFaceTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC2B4157214931F6AD3131 /* HuggingFaceTokenView.swift */; };
+		6744C1490D8A2B6B9300A1CC /* ModelBootstrapperNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E27FB86FD0D301AB0C0F53 /* ModelBootstrapperNetworkTests.swift */; };
 		6929BB7B939CDA4E92FC7130 /* ModelDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E6D43E7E9C992FB66875 /* ModelDiscoveryView.swift */; };
+		724E29433A99705314A2F418 /* EnhancedAppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A85248A0E1A0CC2002004 /* EnhancedAppearanceSettingsView.swift */; };
+		72BAAF345952DD30F7C2A343 /* DiagnosticsOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB762C70132BC60E741DA5EF /* DiagnosticsOverlayView.swift */; };
 		73704D5B7B251CD03E8E9D46 /* PocketCloudLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 780463048304D0FD5FAD44F7 /* PocketCloudLogger */; };
+		751ADFD31F82B7DD665742F4 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8F454744B23590D78DB24 /* StyleManager.swift */; };
 		7646086A8745B9316BF5FCB8 /* ModelDiscoveryManager+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51A50648A05E00123687F6 /* ModelDiscoveryManager+Actions.swift */; };
 		781206BBE8E4B42E06B56B0F /* ModelHubDownloadBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B3195A9FD3B6C85F7E075F /* ModelHubDownloadBar.swift */; };
+		7868B265AB47E389A177F284 /* PocketCloudUI in Frameworks */ = {isa = PBXBuildFile; productRef = EFE08A52D20304197441774F /* PocketCloudUI */; };
 		79869DF5CB3F4ABA3A74478F /* EnhancedAppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A85248A0E1A0CC2002004 /* EnhancedAppearanceSettingsView.swift */; };
 		7A1FF1A4DD74FE6FEA1D2330 /* HuggingFaceTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC2B4157214931F6AD3131 /* HuggingFaceTokenView.swift */; };
+		7A3200B4C010DA0C5710B174 /* AutonomousProblemSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A1A20C42E5B673971AA97 /* AutonomousProblemSolver.swift */; };
+		7B78C19D80AAE84B051EE5CE /* DocumentProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D184C854C5186234BB46B /* DocumentProcessor.swift */; };
 		7D97819F4A3BEA8B220677EB /* AppleIntelligenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4721912F15839BA43FEACF7 /* AppleIntelligenceManager.swift */; };
 		7FD9411038D34B7238DFB0B2 /* DocumentProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D184C854C5186234BB46B /* DocumentProcessor.swift */; };
 		80CC000AC00BA7FC75B4B258 /* ModelDiscoveryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A10C8CE117BF17D8AC1397 /* ModelDiscoveryManager.swift */; };
+		80ECA43283D90986B4D18190 /* MCPTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0DA34338588CCEA8C6F74E /* MCPTools.swift */; };
+		8218B66B98F4E54CE430CB0C /* ModelSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B64A56B003AF0CB83ACDFE /* ModelSetupView.swift */; };
 		8468232D732DE937EA84F18B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CA0F41A1E477AF64E8123E /* AppState.swift */; };
+		86BBD46D534723789617FE67 /* ModelDiscoveryManager+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51A50648A05E00123687F6 /* ModelDiscoveryManager+Actions.swift */; };
+		8708F7F245400EB59F75C9C4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0A36186F4DAD30E555006 /* OnboardingView.swift */; };
+		8777538DDF195581E2B9FE0C /* MLXRegistryCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829CFDB3AEF1A7B475ACBEE0 /* MLXRegistryCheckTests.swift */; };
 		877ABE662CF808410D3DF847 /* HuggingFaceModelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0319A57732FF46AEA4A65C /* HuggingFaceModelDetailView.swift */; };
+		89F94585636294429064E18C /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABD4B32E5B1427C210A4AE /* ChatView.swift */; };
 		8A372254DB8C0F9A29D5D4C8 /* MacAppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5C80A5041F0828D17229DACD /* MacAppIcon.icns */; };
+		8F935B2B6E73058232E8F7C8 /* ChatEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60712BFEBBC71A2EAB3995FB /* ChatEngine.swift */; };
+		8FD13CDD2BA53F35C4E5447F /* ModelDiscoveryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391449EF2563A53A907DA77 /* ModelDiscoveryServiceTests.swift */; };
 		928728747589D12174FC5BA9 /* DocumentEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726002BACC8954A33242FA9C /* DocumentEngine.swift */; };
+		9AEF0AC43CBF425B207B67F0 /* InferenceEngineFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8159C53AD11E03572EA03F90 /* InferenceEngineFeatureTests.swift */; };
 		9B6A6200D73FAAFAF0D16DDC /* ModelDiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998CE90CBF388D43A39417 /* ModelDiscoveryViewModel.swift */; };
 		9BB684B2AEA65BB5222EFB6D /* DiagnosticsOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB762C70132BC60E741DA5EF /* DiagnosticsOverlayView.swift */; };
+		9DE3846A50B079212D7EC93C /* DocumentEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726002BACC8954A33242FA9C /* DocumentEngine.swift */; };
+		9E79939D0571274AB853544C /* ModelConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118F4F00C92821BC2FDBE5EE /* ModelConfigurationTests.swift */; };
 		9FAF28B6953191CB076613D5 /* ModelDownloadStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3269BA71FE5C454466B291E /* ModelDownloadStateObserver.swift */; };
+		A912B22697894136D16185F3 /* GenerateParamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED7BC3FDEF1219830DF1149 /* GenerateParamsTests.swift */; };
+		AB1EFC24AB6138F2B90E281B /* MCPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A4F9F96A78F8B7483DA3C /* MCPManager.swift */; };
+		AC844E5D2621EF81C3DDC567 /* ModelDownloadStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3269BA71FE5C454466B291E /* ModelDownloadStateObserver.swift */; };
 		AF6B7BC6EB175458C9660311 /* ModelDiscoveryDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94E7B4A5BADD1FDB3FE9027 /* ModelDiscoveryDebugView.swift */; };
+		AF9EDCE3565C7B520DE4A24B /* PocketCloudMLX in Frameworks */ = {isa = PBXBuildFile; productRef = 7E942EBA887438839EDB6C53 /* PocketCloudMLX */; };
+		B327621470A6780CD2A318BB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CA0F41A1E477AF64E8123E /* AppState.swift */; };
 		B6DFAF82BFC7FF6313C7A82D /* LoRAAdapterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279FB7B27A2673AC112A1 /* LoRAAdapterManager.swift */; };
 		BC4E2FE7E4B5CBB8474884FE /* ChatOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDEB25DDEC0049FDF89FBC /* ChatOperations.swift */; };
 		BDA5AC28763E2F7B96192E7A /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED5C2AF97EB89CAEC9CBBED /* MessageBubble.swift */; };
+		CBAAC13B071FA107C36E186D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09E36A240465A8DC3E8DC2 /* ChatViewModel.swift */; };
+		D5FDBB40CA68CE77A4E9DE83 /* CoreInferenceEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF710B5399DBA94C7F17F0F /* CoreInferenceEngineTests.swift */; };
 		DACDB029E96F51666FCF7F40 /* ModelRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1D746B6511B8A418A9D33 /* ModelRecommendation.swift */; };
 		DC7D2B7AC769EE5778623C4B /* DeviceCompatibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0D8173952CBC13D16D9F7 /* DeviceCompatibilityView.swift */; };
+		E0DD0F038066CBA8CAB150C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577CC6F906D58C20D9DFED01 /* Assets.xcassets */; };
 		E1B84BFA4A75E7E30F47C69B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9481C0C0E65955A547950 /* SettingsView.swift */; };
 		E2740087D1E547370F4DEAF8 /* PocketCloudMLX in Frameworks */ = {isa = PBXBuildFile; productRef = 6D7655F74F76ABA9F3DFC616 /* PocketCloudMLX */; };
+		E62347748FB5FC506285D0E0 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617E1E1B03774B5978111A96 /* ModelManager.swift */; };
 		E8EB4CFDAC206081A9AA29AB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0A36186F4DAD30E555006 /* OnboardingView.swift */; };
+		E995C93CE99C14EF607B0779 /* default.metallib in Resources */ = {isa = PBXBuildFile; fileRef = 8F278631E39578C504C01CF7 /* default.metallib */; };
 		EB6CCEE49C3277BA4370F8BD /* DocumentDragDropZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F0304EDA1650099C25DCE1 /* DocumentDragDropZone.swift */; };
+		EBD9273EF0124FE77A761094 /* DocumentEngine+DragDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72CD41E03E96A6B5D83BDD /* DocumentEngine+DragDrop.swift */; };
+		F24720A5DEDE3575C488947C /* DocumentDragDropZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F0304EDA1650099C25DCE1 /* DocumentDragDropZone.swift */; };
+		F2E7F01B5D483FE772BDBAD9 /* DocumentEngine+Imports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239AA9C84D8DCF21067B2E5 /* DocumentEngine+Imports.swift */; };
 		F36E11254D465B71AC686354 /* AccessibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A81D68A4B9F8EFFCD735 /* AccessibilityManager.swift */; };
+		F4411922C8E4198AA4FCEE69 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9481C0C0E65955A547950 /* SettingsView.swift */; };
+		F5382A1286662783D9C87C5F /* ModelCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFC85750105FE5F22A2D50 /* ModelCardView.swift */; };
 		F6C1324B547C72C587A4E08E /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BAF5C4B7EC50DBDE383DF4 /* OnboardingStepView.swift */; };
 		F8E091ABD32A9EAE9AA06630 /* ModularDocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CEDD00419E308C5DC8B72 /* ModularDocumentPickerView.swift */; };
 		F9AD8E153943C7C158BA93B7 /* ModelDiscoveryManager+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000818461DE3C732BDE33E1 /* ModelDiscoveryManager+Download.swift */; };
 		FCE239D2E7C87263202B136F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577CC6F906D58C20D9DFED01 /* Assets.xcassets */; };
+		FDFCA9B7C3269C06F022BB59 /* AccessibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A81D68A4B9F8EFFCD735 /* AccessibilityManager.swift */; };
+		FE38ABC92B9137B3F23D94B8 /* MLXIntegrationCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5031AF8243B16CC6E4729618 /* MLXIntegrationCoreTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DCD0EBCEC5D1DB8F7254517 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 232112874A2FA770BEAEE663 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04CE2C59BCCEEE14532C9BCA;
+			remoteInfo = "PocketCloudChat-Universal";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0453DA48D1128406F123146C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0C51A50648A05E00123687F6 /* ModelDiscoveryManager+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelDiscoveryManager+Actions.swift"; sourceTree = "<group>"; };
-		10F5506A68173B4860122261 /* PocketCloudChat-Universal.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "PocketCloudChat-Universal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F5506A68173B4860122261 /* PocketCloudChat-Universal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PocketCloudChat-Universal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		118F4F00C92821BC2FDBE5EE /* ModelConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelConfigurationTests.swift; sourceTree = "<group>"; };
 		17ABD4B32E5B1427C210A4AE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		1A0319A57732FF46AEA4A65C /* HuggingFaceModelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuggingFaceModelDetailView.swift; sourceTree = "<group>"; };
 		1C0DA34338588CCEA8C6F74E /* MCPTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPTools.swift; sourceTree = "<group>"; };
-		1EA90528192641DB973A2D0E /* .keep */ = {isa = PBXFileReference; path = .keep; sourceTree = "<group>"; };
+		1EA90528192641DB973A2D0E /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		20CD77289E57825ABF3D8CC0 /* pocket-cloud-common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pocket-cloud-common"; path = "../../pocket-cloud-common"; sourceTree = SOURCE_ROOT; };
 		2D1A643A03E5BF172B12AA59 /* pocket-cloud-mlx */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pocket-cloud-mlx"; path = ..; sourceTree = SOURCE_ROOT; };
+		2D7452BDDE6E322AA5213D01 /* MLXChatAppIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXChatAppIntegrationTests.swift; sourceTree = "<group>"; };
 		2ED5C2AF97EB89CAEC9CBBED /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
 		33B3195A9FD3B6C85F7E075F /* ModelHubDownloadBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHubDownloadBar.swift; sourceTree = "<group>"; };
+		3A22F7B9BC0369C26AFC0A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3B45DBB360F6673B9949FB4A /* HuggingFaceAPINetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuggingFaceAPINetworkTests.swift; sourceTree = "<group>"; };
+		3E2BA18C3E035C28CE524DA6 /* CoreEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreEngineTests.swift; sourceTree = "<group>"; };
 		3E4D184C854C5186234BB46B /* DocumentProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentProcessor.swift; sourceTree = "<group>"; };
 		40BFC85750105FE5F22A2D50 /* ModelCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCardView.swift; sourceTree = "<group>"; };
 		45BAF5C4B7EC50DBDE383DF4 /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		4E19F9C3535E1CF2CEA9A65A /* OpenAICompatibilityServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompatibilityServer.swift; sourceTree = "<group>"; };
 		4F2CEDD00419E308C5DC8B72 /* ModularDocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularDocumentPickerView.swift; sourceTree = "<group>"; };
 		4FCC2B4157214931F6AD3131 /* HuggingFaceTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuggingFaceTokenView.swift; sourceTree = "<group>"; };
+		5031AF8243B16CC6E4729618 /* MLXIntegrationCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXIntegrationCoreTests.swift; sourceTree = "<group>"; };
 		50E0A36186F4DAD30E555006 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		54A481A0DC3209346C35EB90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		577CC6F906D58C20D9DFED01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59BA17F31042465FCC7F2C91 /* EnhancedMLXFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnhancedMLXFeatures.swift; sourceTree = "<group>"; };
 		5AF0E6D43E7E9C992FB66875 /* ModelDiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDiscoveryView.swift; sourceTree = "<group>"; };
@@ -94,19 +183,29 @@
 		68F0304EDA1650099C25DCE1 /* DocumentDragDropZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDragDropZone.swift; sourceTree = "<group>"; };
 		6D3A1A20C42E5B673971AA97 /* AutonomousProblemSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutonomousProblemSolver.swift; sourceTree = "<group>"; };
 		726002BACC8954A33242FA9C /* DocumentEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEngine.swift; sourceTree = "<group>"; };
+		77CB806697F41D31AA5DCA7F /* PocketCloudMLXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCloudMLXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		793A85248A0E1A0CC2002004 /* EnhancedAppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnhancedAppearanceSettingsView.swift; sourceTree = "<group>"; };
 		7D72CD41E03E96A6B5D83BDD /* DocumentEngine+DragDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentEngine+DragDrop.swift"; sourceTree = "<group>"; };
+		8159C53AD11E03572EA03F90 /* InferenceEngineFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceEngineFeatureTests.swift; sourceTree = "<group>"; };
 		822E6FB87B3D55A99D8475BC /* DocumentFileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFileCard.swift; sourceTree = "<group>"; };
 		8239AA9C84D8DCF21067B2E5 /* DocumentEngine+Imports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentEngine+Imports.swift"; sourceTree = "<group>"; };
+		829CFDB3AEF1A7B475ACBEE0 /* MLXRegistryCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXRegistryCheckTests.swift; sourceTree = "<group>"; };
 		82B0D8173952CBC13D16D9F7 /* DeviceCompatibilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCompatibilityView.swift; sourceTree = "<group>"; };
 		852A4F9F96A78F8B7483DA3C /* MCPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPManager.swift; sourceTree = "<group>"; };
+		89B9A9C512987F0E5F3AF4F2 /* ChatSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSessionTests.swift; sourceTree = "<group>"; };
 		8CF1D746B6511B8A418A9D33 /* ModelRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRecommendation.swift; sourceTree = "<group>"; };
+		8F278631E39578C504C01CF7 /* default.metallib */ = {isa = PBXFileReference; lastKnownFileType = "archive.metal-library"; path = default.metallib; sourceTree = "<group>"; };
+		93E27FB86FD0D301AB0C0F53 /* ModelBootstrapperNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBootstrapperNetworkTests.swift; sourceTree = "<group>"; };
 		A4998CE90CBF388D43A39417 /* ModelDiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDiscoveryViewModel.swift; sourceTree = "<group>"; };
 		B0CDEB25DDEC0049FDF89FBC /* ChatOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOperations.swift; sourceTree = "<group>"; };
 		B6B306E529D3100B66C63D74 /* DocumentEngine+Processing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentEngine+Processing.swift"; sourceTree = "<group>"; };
 		B7E279FB7B27A2673AC112A1 /* LoRAAdapterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoRAAdapterManager.swift; sourceTree = "<group>"; };
+		B95A9CB5433EEBA4057DAF19 /* PocketCloudChatUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PocketCloudChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B981BDCA8362BD148D1B4AF4 /* PocketCloudChat-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PocketCloudChat-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD907574F81131FDC828DBF /* DocumentEngine+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentEngine+Storage.swift"; sourceTree = "<group>"; };
+		BED7BC3FDEF1219830DF1149 /* GenerateParamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateParamsTests.swift; sourceTree = "<group>"; };
 		BFBF140D86FC42638D70AFDF /* pocket-cloud-ui */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pocket-cloud-ui"; path = "../../pocket-cloud-ui"; sourceTree = SOURCE_ROOT; };
+		C14AEE487EABB93A4415BBA6 /* ModelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManagerTests.swift; sourceTree = "<group>"; };
 		C3269BA71FE5C454466B291E /* ModelDownloadStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadStateObserver.swift; sourceTree = "<group>"; };
 		C3B9481C0C0E65955A547950 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C4721912F15839BA43FEACF7 /* AppleIntelligenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIntelligenceManager.swift; sourceTree = "<group>"; };
@@ -114,16 +213,47 @@
 		C5055FFAF58F723D7D04310D /* ChatHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryStore.swift; sourceTree = "<group>"; };
 		C94E7B4A5BADD1FDB3FE9027 /* ModelDiscoveryDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDiscoveryDebugView.swift; sourceTree = "<group>"; };
 		CB762C70132BC60E741DA5EF /* DiagnosticsOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsOverlayView.swift; sourceTree = "<group>"; };
+		D391449EF2563A53A907DA77 /* ModelDiscoveryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDiscoveryServiceTests.swift; sourceTree = "<group>"; };
 		D5A10C8CE117BF17D8AC1397 /* ModelDiscoveryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDiscoveryManager.swift; sourceTree = "<group>"; };
 		D8CA0F41A1E477AF64E8123E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		DCF710B5399DBA94C7F17F0F /* CoreInferenceEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreInferenceEngineTests.swift; sourceTree = "<group>"; };
 		E8B64A56B003AF0CB83ACDFE /* ModelSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSetupView.swift; sourceTree = "<group>"; };
+		E8DAA11221C2E0E399F30844 /* ModelDownloadConsolidatedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadConsolidatedTests.swift; sourceTree = "<group>"; };
 		ECA8F454744B23590D78DB24 /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		F969A81D68A4B9F8EFFCD735 /* AccessibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityManager.swift; sourceTree = "<group>"; };
+		FAA270245C7D0A0BC51B506D /* ModelRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRegistryTests.swift; sourceTree = "<group>"; };
 		FBDC5CE600637AD53E15C9BC /* pocket-cloud-logger */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pocket-cloud-logger"; path = "../../pocket-cloud-logger"; sourceTree = SOURCE_ROOT; };
 		FC09E36A240465A8DC3E8DC2 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		19D3EE1AD3FD2C9662489516 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17787B42E087B8B8CA6D59C7 /* PocketCloudMLX in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C08F5FE032F2118098C1B06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF9EDCE3565C7B520DE4A24B /* PocketCloudMLX in Frameworks */,
+				7868B265AB47E389A177F284 /* PocketCloudUI in Frameworks */,
+				0778EE03AD29619CAA41E497 /* PocketCloudLogger in Frameworks */,
+				144142193552FA74062471C9 /* PocketCloudCommon in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99890D67EB611E5871275F8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DC5A66ABF4F918E525AF7C1 /* PocketCloudMLX in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFCECDD77F0AE0323D79AAD0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +312,8 @@
 				8975EE562BAC2A303E3BD9B9 /* iOS */,
 				F7F495ECD56B56FF899126AD /* Packages */,
 				E488486E5C300018F0F0EA0F /* PocketCloudChat */,
+				D923818B8E636D00E4C8B171 /* PocketCloudChatUITests */,
+				BAE95A29BC9769624005C17F /* PocketCloudMLXTests */,
 				C923FBEE2ABE2D71B7407843 /* Shared */,
 				57944F04DE2BC48E92BFF064 /* Products */,
 			);
@@ -190,7 +322,10 @@
 		57944F04DE2BC48E92BFF064 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				B981BDCA8362BD148D1B4AF4 /* PocketCloudChat-macOS.app */,
 				10F5506A68173B4860122261 /* PocketCloudChat-Universal.app */,
+				B95A9CB5433EEBA4057DAF19 /* PocketCloudChatUITests.xctest */,
+				77CB806697F41D31AA5DCA7F /* PocketCloudMLXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,6 +360,31 @@
 			path = Sources/iOS;
 			sourceTree = "<group>";
 		};
+		BAE95A29BC9769624005C17F /* PocketCloudMLXTests */ = {
+			isa = PBXGroup;
+			children = (
+				89B9A9C512987F0E5F3AF4F2 /* ChatSessionTests.swift */,
+				3E2BA18C3E035C28CE524DA6 /* CoreEngineTests.swift */,
+				DCF710B5399DBA94C7F17F0F /* CoreInferenceEngineTests.swift */,
+				BED7BC3FDEF1219830DF1149 /* GenerateParamsTests.swift */,
+				3B45DBB360F6673B9949FB4A /* HuggingFaceAPINetworkTests.swift */,
+				8159C53AD11E03572EA03F90 /* InferenceEngineFeatureTests.swift */,
+				54A481A0DC3209346C35EB90 /* Info.plist */,
+				2D7452BDDE6E322AA5213D01 /* MLXChatAppIntegrationTests.swift */,
+				5031AF8243B16CC6E4729618 /* MLXIntegrationCoreTests.swift */,
+				829CFDB3AEF1A7B475ACBEE0 /* MLXRegistryCheckTests.swift */,
+				93E27FB86FD0D301AB0C0F53 /* ModelBootstrapperNetworkTests.swift */,
+				118F4F00C92821BC2FDBE5EE /* ModelConfigurationTests.swift */,
+				D391449EF2563A53A907DA77 /* ModelDiscoveryServiceTests.swift */,
+				E8DAA11221C2E0E399F30844 /* ModelDownloadConsolidatedTests.swift */,
+				C14AEE487EABB93A4415BBA6 /* ModelManagerTests.swift */,
+				FAA270245C7D0A0BC51B506D /* ModelRegistryTests.swift */,
+				EA7EA8091B3719A3FB91C91A /* Resources */,
+			);
+			name = PocketCloudMLXTests;
+			path = ../Tests/PocketCloudMLXTests;
+			sourceTree = "<group>";
+		};
 		C923FBEE2ABE2D71B7407843 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +412,15 @@
 				33B3195A9FD3B6C85F7E075F /* ModelHubDownloadBar.swift */,
 			);
 			path = ModelHub;
+			sourceTree = "<group>";
+		};
+		D923818B8E636D00E4C8B171 /* PocketCloudChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3A22F7B9BC0369C26AFC0A84 /* Info.plist */,
+			);
+			name = PocketCloudChatUITests;
+			path = ../Tests/PocketCloudChatUITests;
 			sourceTree = "<group>";
 		};
 		DB4B2DAB1EF577D72CEBDE9B /* Features */ = {
@@ -318,6 +487,14 @@
 			path = Sources/PocketCloudChat;
 			sourceTree = "<group>";
 		};
+		EA7EA8091B3719A3FB91C91A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F278631E39578C504C01CF7 /* default.metallib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F2F3023E92FAC6783E012F4B /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +520,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		032CF21523FCBEFD106ACC46 /* PocketCloudChat-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2B0009C7B2B3618632E5639 /* Build configuration list for PBXNativeTarget "PocketCloudChat-macOS" */;
+			buildPhases = (
+				F4A61F497575A1796E1CEDEA /* Sources */,
+				FBC2BDD470F97E011272B4FF /* Resources */,
+				5C08F5FE032F2118098C1B06 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PocketCloudChat-macOS";
+			packageProductDependencies = (
+				7E942EBA887438839EDB6C53 /* PocketCloudMLX */,
+				EFE08A52D20304197441774F /* PocketCloudUI */,
+				599DDB242CB8F1E702B8BF8E /* PocketCloudLogger */,
+				6CF6B0DAAFBD17C07B3C6185 /* PocketCloudCommon */,
+			);
+			productName = "PocketCloudChat-macOS";
+			productReference = B981BDCA8362BD148D1B4AF4 /* PocketCloudChat-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		04CE2C59BCCEEE14532C9BCA /* PocketCloudChat-Universal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB5E78512845358BE64E8CF7 /* Build configuration list for PBXNativeTarget "PocketCloudChat-Universal" */;
@@ -366,6 +566,46 @@
 			productReference = 10F5506A68173B4860122261 /* PocketCloudChat-Universal.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8872E6D9409CBB08B48024B3 /* PocketCloudMLXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3CEEA8AB16D573A12E6E091 /* Build configuration list for PBXNativeTarget "PocketCloudMLXTests" */;
+			buildPhases = (
+				7C94D696F17A35244906370C /* Sources */,
+				5FB9936930F51B0AB1F838D4 /* Resources */,
+				99890D67EB611E5871275F8E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketCloudMLXTests;
+			packageProductDependencies = (
+				6689282856B5950A679F1D58 /* PocketCloudMLX */,
+			);
+			productName = PocketCloudMLXTests;
+			productReference = 77CB806697F41D31AA5DCA7F /* PocketCloudMLXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8910FF0B4A6CB7DA4929D7AC /* PocketCloudChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A548D27B8689B1D6D414CF81 /* Build configuration list for PBXNativeTarget "PocketCloudChatUITests" */;
+			buildPhases = (
+				F3B9CC28BC2891A43C03A9EA /* Sources */,
+				19D3EE1AD3FD2C9662489516 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				467F9FB3A82F09486AA1345C /* PBXTargetDependency */,
+			);
+			name = PocketCloudChatUITests;
+			packageProductDependencies = (
+				58CECAD14DEF8C1707B1C154 /* PocketCloudMLX */,
+			);
+			productName = PocketCloudChatUITests;
+			productReference = B95A9CB5433EEBA4057DAF19 /* PocketCloudChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -375,6 +615,15 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					032CF21523FCBEFD106ACC46 = {
+						ProvisioningStyle = Automatic;
+					};
+					04CE2C59BCCEEE14532C9BCA = {
+						ProvisioningStyle = Automatic;
+					};
+					8910FF0B4A6CB7DA4929D7AC = {
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = FA6E6E420E4788A3ED61AFF7 /* Build configuration list for PBXProject "PocketCloudChat" */;
@@ -393,11 +642,13 @@
 				C1DD3CAA682C2094EF6D6D4E /* XCLocalSwiftPackageReference ".." */,
 				7CCE8ECC560417146312D0E5 /* XCLocalSwiftPackageReference "../../pocket-cloud-ui" */,
 			);
-			preferredProjectObjectVersion = 54;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				04CE2C59BCCEEE14532C9BCA /* PocketCloudChat-Universal */,
+				032CF21523FCBEFD106ACC46 /* PocketCloudChat-macOS */,
+				8910FF0B4A6CB7DA4929D7AC /* PocketCloudChatUITests */,
+				8872E6D9409CBB08B48024B3 /* PocketCloudMLXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -409,6 +660,23 @@
 			files = (
 				FCE239D2E7C87263202B136F /* Assets.xcassets in Resources */,
 				8A372254DB8C0F9A29D5D4C8 /* MacAppIcon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FB9936930F51B0AB1F838D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E995C93CE99C14EF607B0779 /* default.metallib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBC2BDD470F97E011272B4FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0DD0F038066CBA8CAB150C7 /* Assets.xcassets in Resources */,
+				3041590C3B36F725157F8C29 /* MacAppIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,14 +738,129 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C94D696F17A35244906370C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				464911EE45DFFE03F1CA8189 /* ChatSessionTests.swift in Sources */,
+				2C4E11C11BD25F556B4C2526 /* CoreEngineTests.swift in Sources */,
+				D5FDBB40CA68CE77A4E9DE83 /* CoreInferenceEngineTests.swift in Sources */,
+				A912B22697894136D16185F3 /* GenerateParamsTests.swift in Sources */,
+				1FFDC4B646D4AB6AF949AF8E /* HuggingFaceAPINetworkTests.swift in Sources */,
+				9AEF0AC43CBF425B207B67F0 /* InferenceEngineFeatureTests.swift in Sources */,
+				39C5FB9088520CE6B2A23AFB /* MLXChatAppIntegrationTests.swift in Sources */,
+				FE38ABC92B9137B3F23D94B8 /* MLXIntegrationCoreTests.swift in Sources */,
+				8777538DDF195581E2B9FE0C /* MLXRegistryCheckTests.swift in Sources */,
+				6744C1490D8A2B6B9300A1CC /* ModelBootstrapperNetworkTests.swift in Sources */,
+				9E79939D0571274AB853544C /* ModelConfigurationTests.swift in Sources */,
+				8FD13CDD2BA53F35C4E5447F /* ModelDiscoveryServiceTests.swift in Sources */,
+				6418A1906E86C2A4C9B5C09D /* ModelDownloadConsolidatedTests.swift in Sources */,
+				09424BB6979F51B9F2AFD539 /* ModelManagerTests.swift in Sources */,
+				28BAEAFBD50E28D76BB2D3DE /* ModelRegistryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3B9CC28BC2891A43C03A9EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4A61F497575A1796E1CEDEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDFCA9B7C3269C06F022BB59 /* AccessibilityManager.swift in Sources */,
+				B327621470A6780CD2A318BB /* AppState.swift in Sources */,
+				2834D0879724A12CEAE9CC51 /* AppleIntelligenceManager.swift in Sources */,
+				7A3200B4C010DA0C5710B174 /* AutonomousProblemSolver.swift in Sources */,
+				8F935B2B6E73058232E8F7C8 /* ChatEngine.swift in Sources */,
+				22A284ADD7449C869D6C38A4 /* ChatHistoryStore.swift in Sources */,
+				0FEF99BE51812BD1CF0A43D8 /* ChatOperations.swift in Sources */,
+				89F94585636294429064E18C /* ChatView.swift in Sources */,
+				CBAAC13B071FA107C36E186D /* ChatViewModel.swift in Sources */,
+				4BB231482E75EA60030D2DDB /* ContentView.swift in Sources */,
+				4F3ECAD08097ACE8AA145C31 /* DeviceCompatibilityView.swift in Sources */,
+				72BAAF345952DD30F7C2A343 /* DiagnosticsOverlayView.swift in Sources */,
+				F24720A5DEDE3575C488947C /* DocumentDragDropZone.swift in Sources */,
+				EBD9273EF0124FE77A761094 /* DocumentEngine+DragDrop.swift in Sources */,
+				F2E7F01B5D483FE772BDBAD9 /* DocumentEngine+Imports.swift in Sources */,
+				56B5FF52CDCB758063403319 /* DocumentEngine+Processing.swift in Sources */,
+				0E31627E238EB5B750CD8F2A /* DocumentEngine+Storage.swift in Sources */,
+				9DE3846A50B079212D7EC93C /* DocumentEngine.swift in Sources */,
+				4E4976780632985A7528BC67 /* DocumentFileCard.swift in Sources */,
+				7B78C19D80AAE84B051EE5CE /* DocumentProcessor.swift in Sources */,
+				724E29433A99705314A2F418 /* EnhancedAppearanceSettingsView.swift in Sources */,
+				4B4866EF24A3E6E4BAE0D391 /* EnhancedMLXFeatures.swift in Sources */,
+				18CA8A9FCDAE54E11D16DDB9 /* HuggingFaceModelDetailView.swift in Sources */,
+				66936D526FBE9E90469831F6 /* HuggingFaceTokenView.swift in Sources */,
+				42EDC1B3E085D5ACEA60C408 /* LoRAAdapterManager.swift in Sources */,
+				AB1EFC24AB6138F2B90E281B /* MCPManager.swift in Sources */,
+				80ECA43283D90986B4D18190 /* MCPTools.swift in Sources */,
+				15FE0D01605300548C48F004 /* MessageBubble.swift in Sources */,
+				F5382A1286662783D9C87C5F /* ModelCardView.swift in Sources */,
+				62AB7572515D4960A454D0AB /* ModelDiscoveryDebugView.swift in Sources */,
+				86BBD46D534723789617FE67 /* ModelDiscoveryManager+Actions.swift in Sources */,
+				4AACE18B36E4F7516A8D6847 /* ModelDiscoveryManager+Download.swift in Sources */,
+				3E6F4EB3DEFA9B078EC9941F /* ModelDiscoveryManager+Verification.swift in Sources */,
+				19BA6097B5FDB7CF74FF5F6C /* ModelDiscoveryManager.swift in Sources */,
+				1CD2AC57292FD4239C2E1C53 /* ModelDiscoveryView.swift in Sources */,
+				2EF3F69FFAC4E19F913A48A2 /* ModelDiscoveryViewModel.swift in Sources */,
+				AC844E5D2621EF81C3DDC567 /* ModelDownloadStateObserver.swift in Sources */,
+				2EC5D9D49FA2CD6717890287 /* ModelHubDownloadBar.swift in Sources */,
+				E62347748FB5FC506285D0E0 /* ModelManager.swift in Sources */,
+				033F8DA825D0CCC1519C1C44 /* ModelRecommendation.swift in Sources */,
+				8218B66B98F4E54CE430CB0C /* ModelSetupView.swift in Sources */,
+				27890E07A4071D07F5166578 /* ModularDocumentPickerView.swift in Sources */,
+				11599AFDA394074F2749182C /* OnboardingStepView.swift in Sources */,
+				8708F7F245400EB59F75C9C4 /* OnboardingView.swift in Sources */,
+				5863E02002E38EADA3B515DE /* OpenAICompatibilityServer.swift in Sources */,
+				523B4D2D72D7F5E73A4D7803 /* PocketChatApp.swift in Sources */,
+				F4411922C8E4198AA4FCEE69 /* SettingsView.swift in Sources */,
+				751ADFD31F82B7DD665742F4 /* StyleManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		467F9FB3A82F09486AA1345C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04CE2C59BCCEEE14532C9BCA /* PocketCloudChat-Universal */;
+			targetProxy = 8DCD0EBCEC5D1DB8F7254517 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		526A7C276AA1E7D0BD88620D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_TEST_DISCOVERY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/PocketCloudMLXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudMLXTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
 		567475205D1613F9225BB607 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3W42R75UU;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENTITLEMENTS_FILE = PocketCloudChat.entitlements;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,10 +868,50 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudChat;
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
+		};
+		599F0B4399B0FD9A8C6EF08B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ../Tests/PocketCloudChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudChat.UITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCloudChat-Universal.app/PocketCloudChat-Universal";
+			};
+			name = Release;
+		};
+		5B2C69485138C6C1DC28C0DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENTITLEMENTS_FILE = PocketCloudChat.entitlements;
+				EXCLUDED_ARCHS = "x86_64 arm64e";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudChat.macOS;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
 		};
 		73AC92091D596F2EB2C9681E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -540,11 +963,66 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		942E045949A06F1609DC93BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_TEST_DISCOVERY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../Tests/PocketCloudMLXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudMLXTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A5A7D60A2C4A483C8F0B0A41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ../Tests/PocketCloudChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudChat.UITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCloudChat-Universal.app/PocketCloudChat-Universal";
+			};
+			name = Debug;
+		};
+		C05A3A39A16C83B18E2B170F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENTITLEMENTS_FILE = PocketCloudChat.entitlements;
+				EXCLUDED_ARCHS = "x86_64 arm64e";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudChat.macOS;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -553,6 +1031,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3W42R75UU;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENTITLEMENTS_FILE = PocketCloudChat.entitlements;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,8 +1043,10 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pocketcloud.PocketCloudChat;
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -622,7 +1107,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -633,11 +1117,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A3CEEA8AB16D573A12E6E091 /* Build configuration list for PBXNativeTarget "PocketCloudMLXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				526A7C276AA1E7D0BD88620D /* Debug */,
+				942E045949A06F1609DC93BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A548D27B8689B1D6D414CF81 /* Build configuration list for PBXNativeTarget "PocketCloudChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A7D60A2C4A483C8F0B0A41 /* Debug */,
+				599F0B4399B0FD9A8C6EF08B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		BB5E78512845358BE64E8CF7 /* Build configuration list for PBXNativeTarget "PocketCloudChat-Universal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E59C859B50E3A52749ACB111 /* Debug */,
 				567475205D1613F9225BB607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E2B0009C7B2B3618632E5639 /* Build configuration list for PBXNativeTarget "PocketCloudChat-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2C69485138C6C1DC28C0DE /* Debug */,
+				C05A3A39A16C83B18E2B170F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -673,6 +1184,22 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		58CECAD14DEF8C1707B1C154 /* PocketCloudMLX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PocketCloudMLX;
+		};
+		599DDB242CB8F1E702B8BF8E /* PocketCloudLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PocketCloudLogger;
+		};
+		6689282856B5950A679F1D58 /* PocketCloudMLX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PocketCloudMLX;
+		};
+		6CF6B0DAAFBD17C07B3C6185 /* PocketCloudCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PocketCloudCommon;
+		};
 		6D7655F74F76ABA9F3DFC616 /* PocketCloudMLX */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PocketCloudMLX;
@@ -681,11 +1208,19 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = PocketCloudLogger;
 		};
+		7E942EBA887438839EDB6C53 /* PocketCloudMLX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PocketCloudMLX;
+		};
 		B54DE5D5A8EEC9AA819B33DB /* PocketCloudCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PocketCloudCommon;
 		};
 		D8FBB8899749449DE4BE7F6F /* PocketCloudUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PocketCloudUI;
+		};
+		EFE08A52D20304197441774F /* PocketCloudUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PocketCloudUI;
 		};

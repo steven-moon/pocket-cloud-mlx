@@ -34,7 +34,7 @@ import AppKit
 public class DocumentEngine: ObservableObject {
     // MARK: - Logging
     let logger = Logger(subsystem: "com.mlxchatapp", category: "DocumentEngine")
-    let aiLogger = AIDevLogger.Logger(label: "MLXChatApp.DocumentEngine")
+    let aiLogger = PocketCloudLogger.Logger(label: "MLXChatApp.DocumentEngine")
 
     // MARK: - Published Properties
     @Published public var selectedFiles: [DocumentFile] = []
@@ -177,9 +177,9 @@ public class DocumentEngine: ObservableObject {
         return filtered
     }
 
-    public var documentStatistics: AIDevSwiftUIKit.DocumentStatistics {
+    public var documentStatistics: PocketCloudUI.DocumentStatistics {
         let allDocs = documentLibrary
-        return AIDevSwiftUIKit.DocumentStatistics(
+        return PocketCloudUI.DocumentStatistics(
             totalCount: allDocs.count,
             imageCount: allDocs.filter { $0.category == .images }.count,
             documentCount: allDocs.filter { $0.category == .documents }.count,

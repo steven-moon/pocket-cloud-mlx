@@ -4,5 +4,5 @@
 import PocketCloudUI
 
 /// Re-export shared card components so call sites can continue using local names.
-public typealias DocumentFileCard = AIDevSwiftUIKit.DocumentFileCard
-public typealias DocumentFileCardCompact = AIDevSwiftUIKit.DocumentFileCardCompact
+public typealias DocumentFileCard = PocketCloudUI.DocumentFileCard
+public typealias DocumentFileCardCompact = PocketCloudUI.DocumentFileCardCompact

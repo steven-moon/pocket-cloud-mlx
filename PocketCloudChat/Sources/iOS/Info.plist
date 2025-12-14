@@ -2,7 +2,118 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIBackgroundModes</key>
-	<array/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>PocketCloud Chat</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.pocketcloud.PocketCloudChat</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>PocketCloudChat</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcon</string>
+			</array>
+			<key>CFBundleIconName</key>
+			<string>AppIcon</string>
+		</dict>
+	</dict>
+	<key>CFBundleIcons~ipad</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcon</string>
+			</array>
+			<key>CFBundleIconName</key>
+			<string>AppIcon</string>
+		</dict>
+	</dict>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+		<string>metal</string>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>18.0</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>PocketCloud Chat uses speech recognition to convert your voice input into text, allowing you to interact with the AI assistant hands-free.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>PocketCloud Chat needs access to your microphone to enable voice input for hands-free interaction with the AI assistant.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>PocketCloud Chat may use your camera to capture images for sharing with the AI assistant.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PocketCloud Chat may access your photo library to allow you to share images with the AI assistant.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>PocketCloud Chat may save generated images or content to your photo library.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>PocketCloud Chat may use your location to provide location-aware responses and context.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>PocketCloud Chat may access your contacts to help with contact-related queries and tasks.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>PocketCloud Chat may access your calendar to help with scheduling and event-related queries.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>PocketCloud Chat may access your reminders to help manage tasks and to-do lists.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>PocketCloud Chat may access motion data to enhance user experience and interactions.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>PocketCloud Chat may use Bluetooth to connect with nearby devices and accessories.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>PocketCloud Chat may access your local network to connect with compatible devices and services.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>PocketCloud Chat may use Face ID to secure access to your conversations and settings.</string>
+	<key>NSSiriUsageDescription</key>
+	<string>PocketCloud Chat may integrate with Siri to provide voice assistant capabilities.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>PocketCloud Chat would like to use data from other apps and websites to improve your experience and provide personalized content.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>PocketCloud Chat may access your Apple Music library to help with music-related queries and tasks.</string>
+	<key>NSHomeKitUsageDescription</key>
+	<string>PocketCloud Chat may access your HomeKit accessories to help control your smart home devices.</string>
 </dict>
 </plist>

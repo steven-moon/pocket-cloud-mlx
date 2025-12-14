@@ -24,4 +24,4 @@
 import PocketCloudUI
 
 /// Re-export the shared drag-and-drop zone so existing call sites keep their type name.
-public typealias DocumentDragDropZone = AIDevSwiftUIKit.DocumentDragDropZone
+public typealias DocumentDragDropZone = PocketCloudUI.DocumentDragDropZone

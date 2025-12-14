@@ -32,7 +32,7 @@
 import SwiftUI
 import PocketCloudMLX
 import PocketCloudLogger
-import struct MLXEngine.ModelConfiguration
+import struct PocketCloudMLX.ModelConfiguration
 #if os(iOS) || os(macOS)
 import PDFKit
 #endif

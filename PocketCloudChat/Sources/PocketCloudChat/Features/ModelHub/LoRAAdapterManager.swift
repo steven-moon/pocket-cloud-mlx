@@ -279,12 +279,12 @@ public class LoRAAdapterManager: ObservableObject {
     // MARK: - Compatibility
 
     /// Check if an adapter is compatible with a given model
-    public func isAdapterCompatible(_ adapter: LoRAAdapter, with model: MLXEngine.ModelConfiguration) -> Bool {
+    public func isAdapterCompatible(_ adapter: LoRAAdapter, with model: PocketCloudMLX.ModelConfiguration) -> Bool {
         return adapter.config.baseModel == model.hubId
     }
 
     /// Get compatible adapters for a given model
-    public func getCompatibleAdapters(for model: MLXEngine.ModelConfiguration) -> [LoRAAdapter] {
+    public func getCompatibleAdapters(for model: PocketCloudMLX.ModelConfiguration) -> [LoRAAdapter] {
         return downloadedAdapters.filter { isAdapterCompatible($0, with: model) }
     }
 }

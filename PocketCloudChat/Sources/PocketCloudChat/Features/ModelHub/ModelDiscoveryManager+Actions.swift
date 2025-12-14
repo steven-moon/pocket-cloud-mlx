@@ -292,7 +292,7 @@ extension ModelDiscoveryManager {
 
         do {
             let base = try FileManagerService.shared.ensureModelsDirectoryExists()
-            let normalizedId = MLXEngine.ModelConfiguration.normalizeHubId(modelId)
+            let normalizedId = PocketCloudMLX.ModelConfiguration.normalizeHubId(modelId)
             let possibleDirs = Self.modelDirectoryCandidates(modelId: modelId, normalizedId: normalizedId, base: base)
 
             var deletedPaths: [String] = []
@@ -549,7 +549,7 @@ extension ModelDiscoveryManager {
         }
 
         let normalized = components.joined(separator: "/")
-        return MLXEngine.ModelConfiguration.normalizeHubId(normalized)
+        return PocketCloudMLX.ModelConfiguration.normalizeHubId(normalized)
     }
 
     nonisolated private static func extractHuggingFaceModelId(from path: String) -> String {
@@ -557,7 +557,7 @@ extension ModelDiscoveryManager {
             if let closingQuote = path.range(of: "\",") {
                 let start = path.index(path.startIndex, offsetBy: 4)
                 let idSubstring = path[start..<closingQuote.lowerBound]
-                return MLXEngine.ModelConfiguration.normalizeHubId(String(idSubstring))
+                return PocketCloudMLX.ModelConfiguration.normalizeHubId(String(idSubstring))
             }
         }
 
@@ -570,17 +570,17 @@ extension ModelDiscoveryManager {
                 let withoutPrefix = firstComponent.dropFirst("models--".count)
                 let modelId = withoutPrefix.replacingOccurrences(of: "--", with: "/")
 
-                return MLXEngine.ModelConfiguration.normalizeHubId(modelId)
+                return PocketCloudMLX.ModelConfiguration.normalizeHubId(modelId)
             }
         }
 
         // If not a filesystem path format, return as-is
-        return MLXEngine.ModelConfiguration.normalizeHubId(path)
+        return PocketCloudMLX.ModelConfiguration.normalizeHubId(path)
     }
 
     /// Check if a model is supported by the MLX framework
     private func isModelSupportedByMLX(_ model: HuggingFaceModel) async -> Bool {
-        let normalizedId = MLXEngine.ModelConfiguration.normalizeHubId(model.id)
+        let normalizedId = PocketCloudMLX.ModelConfiguration.normalizeHubId(model.id)
         let registryModels = ModelRegistry.allModels
 
         if registryModels.contains(where: { $0.hubId.caseInsensitiveCompare(normalizedId) == .orderedSame }) {

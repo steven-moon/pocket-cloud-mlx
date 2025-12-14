@@ -22,10 +22,29 @@ targets:
     type: application
     platform: iOS
     sources: [Sources/Shared, Sources/iOS, Sources/PocketCloudChat]
+    resources:
+      - path: Resources/LaunchScreen.storyboard
+        buildPhase: resources
+        platformFilters: [ios]
+      - path: Sources/PocketCloudChat/Assets.xcassets
+        buildPhase: resources
+      - path: Sources/PocketCloudChat/MacAppIcon.icns
+        buildPhase: resources
+        platformFilters: [macos]
     settings:
       GENERATE_INFOPLIST_FILE: NO
       INFOPLIST_FILE: Sources/iOS/Info.plist
       PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudChat
+      CODE_SIGN_STYLE: Automatic
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      # Device support: iPhone, iPad, visionOS only (no Mac designed for iPhone/iPad)
+      TARGETED_DEVICE_FAMILY: "1,2,6" # iPhone, iPad, visionOS
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+      # Platform-specific optimizations
+      ENABLE_HARDENED_RUNTIME: YES
+      ENABLE_APP_SANDBOX: NO
+      REGISTER_APP_GROUPS: YES
+      ENTITLEMENTS_FILE: PocketCloudChat.entitlements
     dependencies:
       - package: PocketCloudMLX
         product: PocketCloudMLX
@@ -35,6 +54,68 @@ targets:
         product: PocketCloudLogger
       - package: PocketCloudCommon
         product: PocketCloudCommon
+
+  # Native macOS App
+  PocketCloudChat-macOS:
+    type: application
+    platform: macOS
+    sources: [Sources/Shared, Sources/PocketCloudChat]
+    resources:
+      - path: Sources/PocketCloudChat/Assets.xcassets
+        buildPhase: resources
+      - path: Sources/PocketCloudChat/MacAppIcon.icns
+        buildPhase: resources
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudChat.macOS
+      CODE_SIGN_STYLE: Automatic
+      ENABLE_HARDENED_RUNTIME: YES
+      # Apple Intelligence requires Apple silicon; ship arm64-only slice
+      EXCLUDED_ARCHS: x86_64 arm64e
+      REGISTER_APP_GROUPS: YES
+      ENTITLEMENTS_FILE: PocketCloudChat.entitlements
+    dependencies:
+      - package: PocketCloudMLX
+        product: PocketCloudMLX
+      - package: PocketCloudUI
+        product: PocketCloudUI
+      - package: PocketCloudLogger
+        product: PocketCloudLogger
+      - package: PocketCloudCommon
+        product: PocketCloudCommon
+
+  # Tests
+  PocketCloudMLXTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [../Tests/PocketCloudMLXTests]
+    dependencies:
+      - package: PocketCloudMLX
+
+    settings:
+      ENABLE_TEST_DISCOVERY: YES
+      GENERATE_INFOPLIST_FILE: YES
+
+  PocketCloudChatUITests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [../Tests/PocketCloudChatUITests]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.pocketcloud.PocketCloudChat.UITests
+      CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - target: PocketCloudChat-Universal
+      - package: PocketCloudMLX
+        product: PocketCloudMLX
+
+    info:
+      path: ../Tests/PocketCloudChatUITests/Info.plist
+      properties:
+        CFBundleDisplayName: PocketCloudChatUITests
+        CFBundleName: PocketCloudChatUITests
+        CFBundleIdentifier: com.pocketcloud.PocketCloudChat.UITests
+        CFBundleVersion: "1.0"
+        CFBundleShortVersionString: "1.0"
 
 workspace:
   name: PocketCloudChat

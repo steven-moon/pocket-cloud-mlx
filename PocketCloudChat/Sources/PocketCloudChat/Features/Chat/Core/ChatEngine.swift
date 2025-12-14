@@ -58,8 +58,8 @@ public class ChatEngine: ObservableObject {
     @Published public var isGenerating: Bool = false
     @Published public var streamingText: String = ""
     @Published public var errorMessage: String?
-    @Published public var selectedModel: MLXEngine.ModelConfiguration?
-    @Published public var availableModels: [MLXEngine.ModelConfiguration] = []
+    @Published public var selectedModel: PocketCloudMLX.ModelConfiguration?
+    @Published public var availableModels: [PocketCloudMLX.ModelConfiguration] = []
     @Published public var downloadingModels: Set<String> = []
     @Published public var downloadProgress: [String: Double] = [:]
     @Published public var pickedDocumentPreview: PickedDocumentPreview?
@@ -67,7 +67,7 @@ public class ChatEngine: ObservableObject {
     @Published public var showVisionPromptSheet: Bool = false
     @Published public var showEmbeddingPromptSheet: Bool = false
     @Published public var showDownloadPrompt: Bool = false
-    @Published public var pendingDownloadModel: MLXEngine.ModelConfiguration?
+    @Published public var pendingDownloadModel: PocketCloudMLX.ModelConfiguration?
     
     // MARK: - Private Properties
     private var chatSession: ChatSession?
@@ -116,7 +116,7 @@ public class ChatEngine: ObservableObject {
         // Skip the normal initialization for testing
         logger.info("ChatEngine initialized with custom LLM engine for testing")
         // Set up mock model for testing
-        let testModel = MLXEngine.ModelConfiguration(
+        let testModel = PocketCloudMLX.ModelConfiguration(
             name: "Test Model",
             hubId: "test/model",
             description: "Mock model for testing",
@@ -223,7 +223,7 @@ public class ChatEngine: ObservableObject {
     }
     
     /// Select a model for chat
-    public func selectModel(_ model: MLXEngine.ModelConfiguration) async {
+    public func selectModel(_ model: PocketCloudMLX.ModelConfiguration) async {
         selectedModel = model
 
         // On simulator, skip MLX model loading to prevent crashes
@@ -251,7 +251,7 @@ public class ChatEngine: ObservableObject {
     }
     
     /// Download a model
-    public func downloadModel(_ model: MLXEngine.ModelConfiguration) async {
+    public func downloadModel(_ model: PocketCloudMLX.ModelConfiguration) async {
         // Check if already downloading
         guard !downloadingModels.contains(model.hubId) else {
             logger.info("Model \(model.name) is already downloading")
@@ -325,7 +325,7 @@ public class ChatEngine: ObservableObject {
     }
     
     /// Setup chat session with model
-    private func setupChatSession(with model: MLXEngine.ModelConfiguration) async throws {
+    private func setupChatSession(with model: PocketCloudMLX.ModelConfiguration) async throws {
         // Check if model is MLX-compatible before trying to create session
         #if canImport(MLXLLM)
         let allModels = MLXLLM.LLMRegistry.shared.models
@@ -372,7 +372,7 @@ public class ChatEngine: ObservableObject {
         errorMessage = nil
     }
 
-    private func findCompatibleDownloadedModel() async -> MLXEngine.ModelConfiguration? {
+    private func findCompatibleDownloadedModel() async -> PocketCloudMLX.ModelConfiguration? {
         #if canImport(MLXLLM)
         let allModels = MLXLLM.LLMRegistry.shared.models
 
@@ -389,7 +389,7 @@ public class ChatEngine: ObservableObject {
                     // Create ModelConfiguration from registry model
                     // Use the model ID to extract basic info
                     let modelName = registryModelId.components(separatedBy: "/").last ?? registryModelId
-                    return MLXEngine.ModelConfiguration(
+                    return PocketCloudMLX.ModelConfiguration(
                         name: modelName,
                         hubId: registryModelId,
                         description: "MLX-compatible model from registry",
@@ -837,7 +837,7 @@ public class ChatEngine: ObservableObject {
     }
 
     /// Switch model (for testing compatibility)
-    public func switchModel(to model: MLXEngine.ModelConfiguration) async throws {
+    public func switchModel(to model: PocketCloudMLX.ModelConfiguration) async throws {
         selectedModel = model
     }
 
